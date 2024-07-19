@@ -1,0 +1,8 @@
+.button-accept {
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 10px;
+  height: 49px;
+  width: 358px;
+  border: none;
+}

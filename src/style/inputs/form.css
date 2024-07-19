@@ -1,0 +1,18 @@
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: var(--primary-color);
+}
+
+input {
+  margin-bottom: 12px;
+  height: 49px;
+  width: 358px;
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: var(--primary-color);
+  padding: 5px;
+}

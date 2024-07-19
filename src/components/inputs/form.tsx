@@ -1,16 +1,16 @@
-import { InputsInterface } from "../../interface/inputs";
+import { FormInterface } from "../../interface/inputs/form";
+import '../../style/inputs/form.css'
 
-const FormInputs = (props: InputsInterface) => {
+const FormInputs = (props: FormInterface) => {
   const { labelForInput, placeholderInput, typeInput } = props;
 
   return (
     <form action="">
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div>
         <label htmlFor="">{labelForInput}</label>
         <input
           type={typeInput}
           placeholder={placeholderInput}
-          style={{ marginBottom: "12px" }}
         />
       </div>
     </form>

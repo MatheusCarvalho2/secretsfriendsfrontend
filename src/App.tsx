@@ -18,27 +18,29 @@ const App = () => {
 
   return (
     <>
-      <div
-        style={{ display: "flex", height: "100vh", flexDirection: "column" }}
-      >
-        <img
-          src="public\img\Logo.svg"
-          alt="logo Secrets Friends"
-          style={{ height: 150, width: 180, marginBottom: 80 }}
-        />
+      <div className="global">
+        <div className="login">
+          <img src="public\img\Logo.svg" alt="logo Secrets Friends" />
 
-        {createinput.map((input) => (
-          <FormInputs
-            labelForInput={input.labelForInput}
-            placeholderInput={input.placeholderInput}
-            typeInput={input.typeInput}
-          />
-        ))}
+          {createinput.map((input) => (
+            <FormInputs
+              labelForInput={input.labelForInput}
+              placeholderInput={input.placeholderInput}
+              typeInput={input.typeInput}
+            />
+          ))}
 
-        <input type="button" value="" />
-        <ButtonAccept textButton="Login" />
-        <a href="">Esqueceu sua senha</a>
-        <a href="">Não possui conta? Cadastre-se!</a>
+          <button className="button-google" type="button" value="">
+            <img src="public\img\google.png" alt="" />
+            <span>Continuar com o Google</span>
+            <span></span>
+          </button>
+          <ButtonAccept textButton="Login" />
+          <div className="remember">
+            <a href="">Esqueceu sua senha</a>
+            <a href="">Não possui conta? Cadastre-se!</a>
+          </div>
+        </div>
       </div>
     </>
   );
