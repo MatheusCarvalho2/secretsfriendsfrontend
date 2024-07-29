@@ -1,3 +1,4 @@
 export interface ButtonAcceptInterface {
-  textButton: string
+  textButton: string;
+  onClick: () => void;
 }
