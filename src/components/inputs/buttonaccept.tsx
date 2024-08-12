@@ -10,11 +10,9 @@ const ButtonAccept = (props: ButtonAcceptInterface) => {
   const handleClick = () => {
     setIsPulsing(true);
     onClick();
-
-    // Remove a classe de pulso após a animação
     setTimeout(() => {
       setIsPulsing(false);
-    }, 300); // Duração da animação definida em CSS
+    }, 300);
   };
   return (
     <button className={isPulsing ? "pulsing" : "buttonaccept"} onClick={handleClick}>

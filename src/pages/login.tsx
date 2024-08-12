@@ -3,6 +3,7 @@ import ButtonAccept from "../components/inputs/buttonaccept";
 import FormInputs from "../components/inputs/form";
 import api from "../server/api";
 import "./login.css";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -73,7 +74,7 @@ const Login = () => {
           />
           <div className="remember">
             <a href="">Esqueceu sua senha</a>
-            <a href="">Não possui conta? Cadastre-se!</a>
+            <Link to="/cadastro">Não possui conta? Cadastre-se!</Link>
           </div>
         </div>
       </div>
