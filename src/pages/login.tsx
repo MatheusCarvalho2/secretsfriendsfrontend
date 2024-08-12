@@ -48,15 +48,26 @@ const Login = () => {
           </button>
           <ButtonAccept
             textButton="Login"
+            // onClick={async () => {
+            //   console.log(`seu email é ${email}`);
+            //   const response = await api.post("/users", {
+            //     email: email,
+            //     password: password,
+            //   });
+            //   console.log("response.data", response.data);
+            // }}
             onClick={() => {
               console.log(`seu email é ${email}`);
+              const body = JSON.stringify({
+                user: {
+                  email: email,
+                  password: password,
+                }
+              })
               api({
                 method: "post",
                 url: "/users",
-                data: {
-                  email: { email },
-                  password: { password },
-                },
+                data: body,
               });
             }}
           />

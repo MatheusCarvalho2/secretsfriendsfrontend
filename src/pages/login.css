@@ -54,3 +54,11 @@ button span {
   font-size: 16px;
   color: var(--primary-color);
 }
+
+.buttonaccept {
+  height: 49px;
+  min-width: 358px;
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: var(--primary-color);
+}

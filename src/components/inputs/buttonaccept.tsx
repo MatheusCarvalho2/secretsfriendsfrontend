@@ -17,7 +17,7 @@ const ButtonAccept = (props: ButtonAcceptInterface) => {
     }, 300); // Duração da animação definida em CSS
   };
   return (
-    <button className={isPulsing ? "pulsing" : ""} onClick={handleClick}>
+    <button className={isPulsing ? "pulsing" : "buttonaccept"} onClick={handleClick}>
       {textButton}
     </button>
   );
