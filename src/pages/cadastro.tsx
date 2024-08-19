@@ -44,10 +44,8 @@ function Cadastro() {
     console.log(`seu email é ${email}`);
     console.log(`sua senha é ${senha}`);
 
-    api({
-      method: "post",
-      url: "/users",
-      data: {
+    api.post('/users', {
+      user: {
         email: email,
         password: senha,
         password_confirmation: confirmaSenha,

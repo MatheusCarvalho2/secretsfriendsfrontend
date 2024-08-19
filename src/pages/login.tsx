@@ -59,16 +59,11 @@ const Login = () => {
             // }}
             onClick={() => {
               console.log(`seu email é ${email}`);
-              const body = JSON.stringify({
+              api.post('/users', {
                 user: {
                   email: email,
                   password: password,
                 }
-              })
-              api({
-                method: "post",
-                url: "/users",
-                data: body,
               });
             }}
           />
