@@ -23,3 +23,8 @@
   box-sizing: border-box;
   background-color: var(--base-color);
 }
+
+a {
+  margin-top: 16px;
+  text-decoration: none;
+}

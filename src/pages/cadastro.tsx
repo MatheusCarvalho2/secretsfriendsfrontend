@@ -7,16 +7,16 @@ import { FaXmark } from "react-icons/fa6";
 import api from '../server/api';
 
 function Cadastro() {
-  const [nomeCompleto, setNomeCompleto] = useState<string>('');
+  const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const [senha, setSenha] = useState<string>('');
-  const [confirmaSenha, setConfirmaSenha] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState<string>('');
   const formsParameters = [
     {
       labelForInput: 'Nome Completo',
       placeholderInput: 'Digite seu nome completo',
       typeInput: 'text',
-      setInputValue: setNomeCompleto,
+      setInputValue: setName,
     },
     {
       labelForInput: 'Email',
@@ -28,34 +28,32 @@ function Cadastro() {
       labelForInput: 'Senha',
       placeholderInput: 'Digite sua senha',
       typeInput: 'password',
-      setInputValue: setSenha,
+      setInputValue: setPassword,
     },
     {
       labelForInput: 'Confirme sua senha',
       placeholderInput: 'Confirme sua senha',
       typeInput: 'password',
-      setInputValue: setConfirmaSenha,
+      setInputValue: setPasswordConfirmation,
     },
   ]
 
-  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(`seu nome é ${nomeCompleto}`);
-    console.log(`seu email é ${email}`);
-    console.log(`sua senha é ${senha}`);
+    console.log(name);
 
     api.post('/signup', {
       user: {
         email: email,
-        password: senha,
-        password_confirmation: confirmaSenha,
+        password: password,
+        password_confirmation: passwordConfirmation,
       },
     })
       .then(response => {
         console.log(response.data);
       })
       .catch(error => {
-        console.error("Houve um erro!", error);
+        console.error("Erro:", error);
       });
   };
 
@@ -64,15 +62,15 @@ function Cadastro() {
     <>
       <div className="cadastro">
         <div className='cadastro-header'>
-          <Link to="/" className='backArrow'>
+          <Link to="/" className='back-arrow'>
             <FaArrowLeft size={20} />
           </Link>
           <h2>Cadastro</h2>
-          <Link to="/" className='backArrow'>
+          <Link to="/" className='back-arrow'>
             <FaXmark size={20} />
           </Link>
         </div>
-        <form onSubmit={handleLogin} className='form'>
+        <form onSubmit={handleRegister} className='form'>
           <div className='form-inputs'>
             {formsParameters.map(formParameter =>
               <FormInputs
@@ -82,8 +80,9 @@ function Cadastro() {
                 setInputValue={formParameter.setInputValue}
               />)}
           </div>
+
           <div className="buttonSubmit">
-            <button className='buttonPadrao' type="submit">Cadastrar</button>
+            <button className='button-padrao' type="submit">Cadastrar</button>
           </div>
         </form>
       </div>

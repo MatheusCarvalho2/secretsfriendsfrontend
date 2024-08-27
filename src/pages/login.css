@@ -1,33 +1,25 @@
 .global {
-  display: flex;
   height: 100vh;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-img {
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-img {
   height: 150px;
   width: 180px;
   margin-bottom: 80px;
 }
 
-.login {
-  max-width: 50vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.remember {
+.links {
   width: 358px;
   align-items: flex-start;
   color: var(--primary-color);
-  text-decoration: none;
-}
-
-a {
-  margin-top: 16px;
   text-decoration: none;
 }
 
@@ -46,37 +38,13 @@ a {
   padding: 10px;
 }
 
-button img {
+.button-google img {
   width: 30px;
   height: 30px;
   margin: 0px;
 }
 
-button span {
+.button-google span {
   font-size: 16px;
   color: var(--primary-color);
-}
-
-.buttonaccept {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  width: 366px;
-  height: 55px;
-  font-size: 1em;
-  background-color: var(--primary-color);
-  color: var(--white-text-color);
-  cursor: pointer;
-}
-
-.pulsing {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  width: 366px;
-  height: 55px;
-  font-size: 1em;
-  cursor: pointer;
-  background-color: var(--secondary-color);
-  color: var(--black-text-color);
 }

@@ -47,7 +47,7 @@ const Login = () => {
     <>
       <div className="global">
         <div className="login">
-          <img src={Logo} alt="Logo do Secrets Friends" />
+          <img className="login-img" src={Logo} alt="Logo do Secrets Friends" />
 
           {createinput.map((input) => (
             <FormInputs
@@ -67,7 +67,7 @@ const Login = () => {
             textButton="Login"
             onClick={() => { handleLogin() }}
           />
-          <div className="remember">
+          <div className="links">
             <a href="">Esqueceu sua senha</a>
             <Link to="/cadastro">Não possui conta? Cadastre-se!</Link>
           </div>
