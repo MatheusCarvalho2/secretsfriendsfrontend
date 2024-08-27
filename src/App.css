@@ -1,4 +1,4 @@
-.global {
+/* .global {
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -53,4 +53,4 @@ button img {
 button span {
   font-size: 16px;
   color: var(--primary-color);
-}
+} */

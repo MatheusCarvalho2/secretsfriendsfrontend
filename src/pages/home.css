@@ -1,0 +1,17 @@
+.home-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: calc(2 * var(--gap));
+}
+
+.logo {
+  height: 52px;
+  width: 60px;
+}
+
+.img-text {
+  text-align: center;
+  width: 100%;
+}

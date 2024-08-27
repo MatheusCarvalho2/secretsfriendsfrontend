@@ -4,6 +4,7 @@ import FormInputs from "../components/inputs/form";
 import api from "../server/api";
 import "./login.css";
 import { Link } from 'react-router-dom';
+import Logo from '../assets/images/Logo.svg'
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -27,11 +28,26 @@ const Login = () => {
     },
   ];
 
+  const handleLogin = () => {
+    api.post('/login', {
+      user: {
+        email: email,
+        password: password,
+      }
+    }).then(response => {
+      console.log(response.status);
+      if (response.status === 200) window.location.href = '/home'
+    })
+      .catch(error => {
+        console.error("Erro:", error);
+      });
+  };
+
   return (
     <>
       <div className="global">
         <div className="login">
-          <img src="img\Logo.svg" alt="logo Secrets Friends" />
+          <img src={Logo} alt="Logo do Secrets Friends" />
 
           {createinput.map((input) => (
             <FormInputs
@@ -49,28 +65,7 @@ const Login = () => {
           </button>
           <ButtonAccept
             textButton="Login"
-            // onClick={async () => {
-            //   console.log(`seu email é ${email}`);
-            //   const response = await api.post("/users", {
-            //     email: email,
-            //     password: password,
-            //   });
-            //   console.log("response.data", response.data);
-            // }}
-            onClick={() => {
-              api.post('/login', {
-                user: {
-                  email: email,
-                  password: password,
-                }
-              }).then(response => {
-                console.log(response.status);
-                if (response.status === 200) window.location.href = '/hello'
-              })
-                .catch(error => {
-                  console.error("Houve um erro!", error);
-                });
-            }}
+            onClick={() => { handleLogin() }}
           />
           <div className="remember">
             <a href="">Esqueceu sua senha</a>
