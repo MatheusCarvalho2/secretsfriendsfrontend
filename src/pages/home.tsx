@@ -4,6 +4,7 @@ import ButtonAccept from '../components/inputs/buttonaccept'
 import '../style/home.css'
 
 function Home() {
+
   return (
     <div className='home-content'>
       <div className='home-head'>
@@ -16,7 +17,7 @@ function Home() {
       </div>
       <ButtonAccept
         textButton="Criar"
-        onClick={() => { }}
+        onClick={() => { window.location.href = '/criar' }}
       />
     </div>
   )
