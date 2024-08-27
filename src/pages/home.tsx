@@ -1,7 +1,7 @@
 import ImgHome from '../assets/images/ImgHome.png'
 import LogoImage from '../assets/images/Logo.svg'
 import ButtonAccept from '../components/inputs/buttonaccept'
-import './home.css'
+import '../style/home.css'
 
 function Home() {
   return (

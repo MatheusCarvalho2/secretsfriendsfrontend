@@ -1,11 +1,11 @@
-.cadastro {
+.register {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin: calc(var(--gap) * 2);
 }
 
-.cadastro-header {
+.register-header {
   max-width: 100vh;
   margin: var(--gap);
   display: flex;

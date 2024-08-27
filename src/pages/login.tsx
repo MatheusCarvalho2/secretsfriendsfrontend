@@ -2,7 +2,7 @@ import { useState } from "react";
 import ButtonAccept from "../components/inputs/buttonaccept";
 import FormInputs from "../components/inputs/form";
 import api from "../server/api";
-import "./login.css";
+import "../style/login.css";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/Logo.svg'
 

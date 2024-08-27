@@ -1,12 +1,12 @@
 import FormInputs from "../components/inputs/form";
-import './cadastro.css'
+import '../style/register.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from "react-icons/fa6";
 import api from '../server/api';
 
-function Cadastro() {
+function Register() {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -60,8 +60,8 @@ function Cadastro() {
 
   return (
     <>
-      <div className="cadastro">
-        <div className='cadastro-header'>
+      <div className="register">
+        <div className='register-header'>
           <Link to="/" className='back-arrow'>
             <FaArrowLeft size={20} />
           </Link>
@@ -90,4 +90,4 @@ function Cadastro() {
   )
 }
 
-export default Cadastro
+export default Register
