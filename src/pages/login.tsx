@@ -58,13 +58,18 @@ const Login = () => {
             //   console.log("response.data", response.data);
             // }}
             onClick={() => {
-              console.log(`seu email é ${email}`);
-              api.post('/users', {
+              api.post('/login', {
                 user: {
                   email: email,
                   password: password,
                 }
-              });
+              }).then(response => {
+                console.log(response.status);
+                if (response.status === 200) window.location.href = '/hello'
+              })
+                .catch(error => {
+                  console.error("Houve um erro!", error);
+                });
             }}
           />
           <div className="remember">
