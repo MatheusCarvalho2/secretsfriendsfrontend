@@ -81,9 +81,7 @@ function Register() {
               />)}
           </div>
 
-          <div className="buttonSubmit">
-            <button className='button-padrao' type="submit">Cadastrar</button>
-          </div>
+          <button className='button-padrao' type="submit">Cadastrar</button>
         </form>
       </div>
     </>

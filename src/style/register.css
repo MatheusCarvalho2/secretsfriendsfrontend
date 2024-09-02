@@ -13,6 +13,7 @@
   justify-content: space-around;
   align-items: baseline;
   gap: 100px;
+  text-align: center;
 }
 
 .form {

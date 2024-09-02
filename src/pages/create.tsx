@@ -1,5 +1,5 @@
-import '../style/create'
 import FormInputs from '../components/inputs/form';
+import '../style/register.css'
 import { useState } from 'react';
 import api from '../server/api';
 import { Link } from 'react-router-dom';
@@ -67,6 +67,7 @@ function Create() {
     )
       .then(response => {
         console.log(response.data);
+        if (response.status === 201) window.location.href = '/lista'
       })
       .catch(error => {
         console.error("Erro:", error);
@@ -96,9 +97,7 @@ function Create() {
             />)}
         </div>
 
-        <div className="buttonSubmit">
-          <button className='button-padrao' type="submit">Próximo</button>
-        </div>
+        <button className='button-padrao' type="submit">Próximo</button>
       </form>
     </>
   )
