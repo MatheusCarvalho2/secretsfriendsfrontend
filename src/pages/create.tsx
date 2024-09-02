@@ -12,7 +12,7 @@ function Create() {
   const [maxValue, setMaxValue] = useState<string>('');
   const [dateDraw, setDateDraw] = useState<string>('');
   const [giftDate, setGiftDate] = useState<string>('');
-  const [descriptionDraw, setdescriptionDraw] = useState<string>('');
+  const [descriptionDraw, setDescriptionDraw] = useState<string>('');
   const formsParameters = [
     {
       labelForInput: 'Nome do Sorteio*',
@@ -48,15 +48,15 @@ function Create() {
       labelForInput: 'Descrição do amigo secreto',
       placeholderInput: 'Ex: Amigo secreto da firma - 2024',
       typeInput: 'text',
-      setInputValue: setdescriptionDraw,
+      setInputValue: setDescriptionDraw,
     },
   ];
 
   const handleDraw = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    api.post('/draws', {
-      draw: {
+    api.post('/draws',
+      {
         title: drawName,
         min_value: minValue,
         max_value: maxValue,
@@ -64,7 +64,7 @@ function Create() {
         date_present: giftDate,
         description: descriptionDraw
       },
-    })
+    )
       .then(response => {
         console.log(response.data);
       })

@@ -10,9 +10,6 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  console.log(email);
-  console.log(password);
-
   const createinput = [
     {
       labelForInput: "Email",
