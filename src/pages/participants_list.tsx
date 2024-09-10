@@ -3,8 +3,32 @@ import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
 import ButtonAccept from '../components/inputs/buttonaccept';
+// import api from '../server/api';
 
 function ParticipantsList() {
+
+  // const handleModal = () => {
+  //   api.get()
+  // }
+
+  // const handleDrawUser = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+
+  //   api.post('/draw_users',
+  //     {
+  //       "owner": true,
+  //       "suggestion": '',
+  //       "user_id": "user.id", //store
+  //       "draw_id": "draw.id", //store
+  //     },
+  //   )
+  //     .then(response => {
+  //       console.log(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.error("Erro:", error);
+  //     });
+  // };
 
   return (
     <>
@@ -20,7 +44,7 @@ function ParticipantsList() {
         </div>
         <ButtonAccept
           textButton="Adicionar"
-          onClick={() => { window.location.href = '/adicionar' }}
+          onClick={() => { }}
         />
       </div>
     </>
