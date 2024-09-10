@@ -26,6 +26,7 @@ const Login = () => {
   ];
 
   const handleLogin = () => {
+
     api.post('/login', {
       user: {
         email: email,
@@ -38,6 +39,20 @@ const Login = () => {
       .catch(error => {
         console.error("Erro:", error);
       });
+
+    fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    })
+      .then(response => {
+        const token = response.headers.get('Authorization').split(' ')[1]; // "Bearer <token>"
+        console.log(token);
+        localStorage.setItem('jwt', token); // Salva o token
+      })
+      .catch(error => console.error('Login failed', error));
   };
 
   return (
