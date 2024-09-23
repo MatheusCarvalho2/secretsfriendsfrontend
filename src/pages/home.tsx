@@ -8,6 +8,10 @@ import api from '../server/api';
 function Home() {
   const [userName, setUserName] = useState('');
 
+  const logout = () => {
+    api.delete('/logout')
+  }
+
   useEffect(() => {
     api.get('/login')
       .then(response => {
@@ -45,10 +49,16 @@ function Home() {
         <img src={ImgHome} alt="Pessoa feliz por ter logado." />
         <h3>Crie o seu primeiro sorteio agora!</h3>
       </div>
-      <ButtonAccept
-        textButton="Criar"
-        onClick={() => { window.location.href = '/criar' }}
-      />
+      <div className='buttons-home'>
+        <ButtonAccept
+          textButton='Logout'
+          onClick={logout}
+        />
+        <ButtonAccept
+          textButton="Criar"
+          onClick={() => { window.location.href = '/criar' }}
+        />
+      </div>
     </div>
   )
 
