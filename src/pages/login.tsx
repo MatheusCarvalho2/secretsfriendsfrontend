@@ -48,9 +48,9 @@ const Login = () => {
       body: JSON.stringify({ email, password })
     })
       .then(response => {
-        const token = response.headers.get('Authorization').split(' ')[1]; // "Bearer <token>"
+        const token = response?.headers?.get('Authorization')?.split(' ')[1];
         console.log(token);
-        localStorage.setItem('jwt', token); // Salva o token
+        // localStorage.setItem('jwt', token);
       })
       .catch(error => console.error('Login failed', error));
   };
