@@ -5,16 +5,21 @@ import ButtonAccept from '../components/inputs/buttonaccept'
 import '../style/home.css'
 // import { useEffect, useState } from 'react';
 import api from '../server/api';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function Home() {
   const logout = () => {
     api.delete('/logout')
-  }
+  };
 
-  // const name = useSelector((state: any) => state.name.name);
+  const currentName = useSelector((state: any) => {
+    console.log(state.name);
+    return state.name.name
+  });
 
-  const name = localStorage.getItem('name');
+  console.log(currentName);
+
+  // const name = localStorage.getItem('name');
 
   // const [userName, setUserName] = useState('');
   // useEffect(() => {
@@ -35,7 +40,7 @@ function Home() {
     <div className='home-content'>
       <div className='home-head'>
         <img className="logo" src={LogoImage} alt="Logo do Secrets Friends" />
-        <h2>Olá {name}</h2>
+        <h2>Olá {currentName.toString()}</h2>
       </div>
       <div className='img-text'>
         <img src={ImgHome} alt="Pessoa feliz por ter logado." />

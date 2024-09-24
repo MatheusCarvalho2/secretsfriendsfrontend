@@ -6,20 +6,14 @@ import api from "../server/api";
 import "../style/login.css";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/Logo.svg'
-import { useDispatch } from 'react-redux';
-import { setName } from '../store/reducers/name';
+// import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
+
   const [password, setPassword] = useState<string>("");
 
   const createinput = [
-    {
-      labelForInput: "Nome",
-      placeholderInput: "Digite seu nome",
-      typeInput: "name",
-      setInputValue: setName,
-    },
     {
       labelForInput: "Email",
       placeholderInput: "Digite seu email",
@@ -34,6 +28,12 @@ const Login = () => {
     },
   ];
 
+  // const dispatch = useDispatch();
+
+  // const handleNameChange = (newName: string) => {
+  //   dispatch(setName(newName));
+  // };
+
   const handleLogin = () => {
     api.post('/login', {
       user: {
@@ -43,7 +43,8 @@ const Login = () => {
     }).then(response => {
       if (response.status === 200) {
         // const name = response.data.name;
-        localStorage.setItem('name', email);
+        // localStorage.setItem('name', email);
+        // handleNameChange(email)
         // const token = response?.headers?.get('Authorization')?.split(' ')[1];
         // localStorage.setItem('jwt', token);
 
@@ -55,11 +56,7 @@ const Login = () => {
       });
   }
 
-  const dispatch = useDispatch();
 
-  const handleNameChange = (newName: string) => {
-    dispatch(setName(newName));
-  };
 
 
   return (
@@ -86,7 +83,6 @@ const Login = () => {
             textButton="Login"
             onClick={() => {
               handleLogin()
-              handleNameChange("Ana")
             }}
           />
           <div className="links">
