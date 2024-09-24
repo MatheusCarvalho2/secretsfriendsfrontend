@@ -1,49 +1,41 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ImgHome from '../assets/images/ImgHome.png'
 import LogoImage from '../assets/images/Logo.svg'
 import ButtonAccept from '../components/inputs/buttonaccept'
 import '../style/home.css'
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import api from '../server/api';
+// import { useSelector } from 'react-redux';
 
 function Home() {
-  const [userName, setUserName] = useState('');
-
   const logout = () => {
     api.delete('/logout')
   }
 
-  useEffect(() => {
-    api.get('/login')
-      .then(response => {
-        console.log(response);
-        console.log(response.data);
+  // const name = useSelector((state: any) => state.name.name);
 
-        setUserName(response.data.email);
-      })
-      .catch(error => {
-        console.error("Error:", error);
-      });
-  }, []);
+  const name = localStorage.getItem('name');
 
-  const token = localStorage.getItem('jwt'); // Obtém o token armazenado
+  // const [userName, setUserName] = useState('');
+  // useEffect(() => {
+  //   api.get('/login')
+  //     .then(response => {
+  //       console.log(response);
+  //       console.log(response.data.name);
 
-  fetch('http://localhost:3000/login', {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${token}`, // Adiciona o token no header
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Erro ao buscar dados', error));
+  //       setUserName(response.data.email);
+  //     })
+  //     .catch(error => {
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
 
 
   return (
     <div className='home-content'>
       <div className='home-head'>
         <img className="logo" src={LogoImage} alt="Logo do Secrets Friends" />
-        <h2>Olá {userName}</h2>
+        <h2>Olá {name}</h2>
       </div>
       <div className='img-text'>
         <img src={ImgHome} alt="Pessoa feliz por ter logado." />

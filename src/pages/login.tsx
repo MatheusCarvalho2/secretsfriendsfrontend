@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import ButtonAccept from "../components/inputs/buttonaccept";
 import FormInputs from "../components/inputs/form";
@@ -5,12 +6,20 @@ import api from "../server/api";
 import "../style/login.css";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/Logo.svg'
+import { useDispatch } from 'react-redux';
+import { setName } from '../store/reducers/name';
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const createinput = [
+    {
+      labelForInput: "Nome",
+      placeholderInput: "Digite seu nome",
+      typeInput: "name",
+      setInputValue: setName,
+    },
     {
       labelForInput: "Email",
       placeholderInput: "Digite seu email",
@@ -26,34 +35,32 @@ const Login = () => {
   ];
 
   const handleLogin = () => {
-
     api.post('/login', {
       user: {
         email: email,
         password: password,
       }
     }).then(response => {
-      console.log(response.status);
-      if (response.status === 200) window.location.href = '/home'
+      if (response.status === 200) {
+        // const name = response.data.name;
+        localStorage.setItem('name', email);
+        // const token = response?.headers?.get('Authorization')?.split(' ')[1];
+        // localStorage.setItem('jwt', token);
+
+        window.location.href = '/home';
+      }
     })
       .catch(error => {
         console.error("Erro:", error);
       });
+  }
 
-    fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    })
-      .then(response => {
-        const token = response?.headers?.get('Authorization')?.split(' ')[1];
-        console.log(token);
-        // localStorage.setItem('jwt', token);
-      })
-      .catch(error => console.error('Login failed', error));
+  const dispatch = useDispatch();
+
+  const handleNameChange = (newName: string) => {
+    dispatch(setName(newName));
   };
+
 
   return (
     <>
@@ -77,7 +84,10 @@ const Login = () => {
           </button>
           <ButtonAccept
             textButton="Login"
-            onClick={() => { handleLogin() }}
+            onClick={() => {
+              handleLogin()
+              handleNameChange("Ana")
+            }}
           />
           <div className="links">
             <a href="">Esqueceu sua senha</a>
