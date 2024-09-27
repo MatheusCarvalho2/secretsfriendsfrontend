@@ -12,5 +12,10 @@ export interface ProfileState {
     jwt: string,
     presents_list: Array<string>,
     secret_friend: string,
-  }
+  },
+  request: {
+    loading: boolean,
+    loaded: boolean,
+    error: boolean,
+  },
 }
