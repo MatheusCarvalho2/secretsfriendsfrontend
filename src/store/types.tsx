@@ -1,7 +1,7 @@
 export enum ProfileTypes {
-  SHOW_REQUEST = '@profile/SHOW_REQUEST',
-  SHOW_SUCCESS = '@profile/SHOW_SUCCESS',
-  SHOW_FAILURE = '@profile/SHOW_FAILURE',
+  SHOW_REQUEST = 'SHOW_REQUEST',
+  SHOW_SUCCESS = 'SHOW_SUCCESS',
+  SHOW_FAILURE = 'SHOW_FAILURE',
 }
 
 export interface ProfileState {

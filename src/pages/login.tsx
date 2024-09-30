@@ -6,6 +6,11 @@ import api from "../server/api";
 import "../style/login.css";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/Logo.svg'
+import { profileSignIn, ProfileProps } from "../store/actions";
+import { useSelector } from "react-redux";
+import { ProfileState } from "../store/types";
+import { ApplicationState } from "../store";
+
 // import { useDispatch } from 'react-redux';
 
 const Login = () => {
@@ -34,29 +39,39 @@ const Login = () => {
   //   dispatch(setName(newName));
   // };
 
+  const user: ProfileProps = {
+    email,
+    password,
+    passwordConfimation: password,
+  };
+
   const handleLogin = () => {
-    api.post('/login', {
-      user: {
-        email: email,
-        password: password,
-      }
-    }).then(response => {
-      if (response.status === 200) {
-        // const name = response.data.name;
-        // localStorage.setItem('name', email);
-        // handleNameChange(email)
-        // const token = response?.headers?.get('Authorization')?.split(' ')[1];
-        // localStorage.setItem('jwt', token);
+    profileSignIn(user);
 
-        window.location.href = '/home';
-      }
-    })
-      .catch(error => {
-        console.error("Erro:", error);
-      });
+    // api.post('/login', {
+    //   user: {
+    //     email: email,
+    //     password: password,
+    //   }
+    // }).then(response => {
+    //   if (response.status === 200) {
+
+    //     // const name = response.data.name;
+    //     // localStorage.setItem('name', email);
+    //     // handleNameChange(email)
+    //     // const token = response?.headers?.get('Authorization')?.split(' ')[1];
+    //     // localStorage.setItem('jwt', token);
+
+    //     window.location.href = '/home';
+    //   }
+    // })
+    //   .catch(error => {
+    //     console.error("Erro:", error);
+    //   });
   }
+  const { profile } = useSelector<ApplicationState, ProfileState>((state) => state.storage.profile);
 
-
+  console.log(profile);
 
 
   return (

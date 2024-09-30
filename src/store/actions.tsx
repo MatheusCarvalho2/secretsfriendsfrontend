@@ -9,10 +9,12 @@ interface ProfileProps {
 
 export const profileSignOut = () => ({
   types: [ProfileTypes.SHOW_REQUEST, ProfileTypes.SHOW_SUCCESS, ProfileTypes.SHOW_FAILURE],
-  promise: (client: any) => client.delete('http://localhost:3000/logout', { body: { new_site: true } }),
+  promise: (user: any) => user.delete('http://localhost:3000/logout'),
 });
 
 export const profileSignIn = ({ email, password, passwordConfirmation }: ProfileProps) => ({
   types: [ProfileTypes.SHOW_REQUEST, ProfileTypes.SHOW_SUCCESS, ProfileTypes.SHOW_FAILURE],
-  promise: (client: any) => client.post('http://localhost:3000/signup', { user: { email, password, passwordConfirmation }, }),
+  promise: (user: any) => user.post('http://localhost:3000/signup', { user: { email, password, passwordConfirmation }, }),
 });
+
+export default ProfileProps;
