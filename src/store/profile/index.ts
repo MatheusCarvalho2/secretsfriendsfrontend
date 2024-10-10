@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { produce } from 'immer';
-import { Store, Reducer } from 'redux';
 import { ProfileState, ProfileTypes } from './types'
-import { configureStore } from '@reduxjs/toolkit';
-import persistReducer from './persistReducer';
-import rootReducer from './rootReducer';
+import { Reducer } from '@reduxjs/toolkit';
 
 const INITIAL_STATE: ProfileState = {
   profile: {
@@ -21,14 +18,6 @@ const INITIAL_STATE: ProfileState = {
     error: false,
   },
 };
-
-
-export interface ApplicationState {
-  state: any;
-  storage: {
-    profile: ProfileState;
-  }
-}
 
 const reducer: Reducer<ProfileState> = (
   state = INITIAL_STATE,
@@ -70,6 +59,4 @@ const reducer: Reducer<ProfileState> = (
   });
 };
 
-const store: Store<ApplicationState> = configureStore(persistReducer(rootReducer));
-
-export default { store, reducer };
+export default reducer;
