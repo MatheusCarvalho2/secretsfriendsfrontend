@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import api from "../server/api";
 import { useState } from "react";
 import ButtonAccept from "../components/inputs/buttonaccept";
 import FormInputs from "../components/inputs/form";
-import api from "../server/api";
 import "../style/login.css";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/Logo.svg'
-import { profileSignIn, ProfileProps } from "../store/actions";
-import { useSelector } from "react-redux";
-import { ProfileState } from "../store/types";
-import { ApplicationState } from "../store";
+// import ProfileProps, { profileSignIn } from "../store/profile/actions";
+// import { useSelector } from "react-redux";
+// import { ProfileState } from "../store/profile/types";
+
 
 // import { useDispatch } from 'react-redux';
+// import { ApplicationState } from "../store/types";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -34,44 +35,37 @@ const Login = () => {
   ];
 
   // const dispatch = useDispatch();
+  // const { profile } = useSelector<ApplicationState, ProfileState>((state) => state.profile);
+  // console.log(profile);
 
-  // const handleNameChange = (newName: string) => {
-  //   dispatch(setName(newName));
+  // const handleNameChange = () => {
+  //   dispatch(setName(profile.name));
   // };
 
-  const user: ProfileProps = {
-    email,
-    password,
-    passwordConfimation: password,
-  };
+  // const user: ProfileProps = {
+  //   email,
+  //   password,
+  //   passwordConfirmation: ""
+  // };
 
   const handleLogin = () => {
-    profileSignIn(user);
+    // profileSignIn(user);
+    // handleNameChange
 
-    // api.post('/login', {
-    //   user: {
-    //     email: email,
-    //     password: password,
-    //   }
-    // }).then(response => {
-    //   if (response.status === 200) {
-
-    //     // const name = response.data.name;
-    //     // localStorage.setItem('name', email);
-    //     // handleNameChange(email)
-    //     // const token = response?.headers?.get('Authorization')?.split(' ')[1];
-    //     // localStorage.setItem('jwt', token);
-
-    //     window.location.href = '/home';
-    //   }
-    // })
-    //   .catch(error => {
-    //     console.error("Erro:", error);
-    //   });
+    api.post('/login', {
+      user: {
+        email: email,
+        password: password,
+      }
+    }).then(response => {
+      if (response.status === 200) {
+        window.location.href = '/home';
+      }
+    })
+      .catch(error => {
+        console.error("Erro:", error);
+      });
   }
-  const { profile } = useSelector<ApplicationState, ProfileState>((state) => state.storage.profile);
-
-  console.log(profile);
 
 
   return (
@@ -111,3 +105,7 @@ const Login = () => {
 };
 
 export default Login;
+// function setName(newName: string): any {
+//   throw new Error("Function not implemented.");
+// }
+
