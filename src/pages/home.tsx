@@ -14,7 +14,7 @@ function Home() {
 
   const currentName = useSelector((state: any) => {
     console.log(state.name);
-    return state.name.name
+    return state.name;
   });
 
   console.log(currentName);
@@ -40,7 +40,7 @@ function Home() {
     <div className='home-content'>
       <div className='home-head'>
         <img className="logo" src={LogoImage} alt="Logo do Secrets Friends" />
-        <h2>Olá {currentName.toString()}</h2>
+        <h2>Olá {currentName}</h2>
       </div>
       <div className='img-text'>
         <img src={ImgHome} alt="Pessoa feliz por ter logado." />
