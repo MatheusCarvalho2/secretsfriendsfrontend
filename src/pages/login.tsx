@@ -1,18 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import api from "../server/api";
 import { useState } from "react";
 import ButtonAccept from "../components/inputs/buttonaccept";
 import FormInputs from "../components/inputs/form";
 import "../style/login.css";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/Logo.svg'
-// import ProfileProps, { profileSignIn } from "../store/profile/actions";
-// import { useSelector } from "react-redux";
-// import { ProfileState } from "../store/profile/types";
-
-
-// import { useDispatch } from 'react-redux';
-// import { ApplicationState } from "../store/types";
+import { useSelector } from "react-redux";
+import { ProfileState } from "../store/profile/types";
+import { useDispatch } from 'react-redux';
+import { ApplicationState } from "../store/types";
+import { profileSignIn } from "../store/profile/actions";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -34,39 +31,17 @@ const Login = () => {
     },
   ];
 
-  // const dispatch = useDispatch();
-  // const { profile } = useSelector<ApplicationState, ProfileState>((state) => state.profile);
-  // console.log(profile);
-
-  // const handleNameChange = () => {
-  //   dispatch(setName(profile.name));
-  // };
-
-  // const user: ProfileProps = {
-  //   email,
-  //   password,
-  //   passwordConfirmation: ""
-  // };
+  const dispatch = useDispatch();
+  const { profile, request } = useSelector<ApplicationState, ProfileState>((state) => state.profile);
 
   const handleLogin = () => {
-    // profileSignIn(user);
-    // handleNameChange
-
-    api.post('/login', {
-      user: {
-        email: email,
-        password: password,
-      }
-    }).then(response => {
-      if (response.status === 200) {
-        window.location.href = '/home';
-      }
-    })
-      .catch(error => {
-        console.error("Erro:", error);
-      });
+    dispatch(profileSignIn({ email: email, password: password }))
+    if (request.loaded) {
+      window.location.href = '/home';
+    }
   }
 
+  console.log(profile);
 
   return (
     <>
@@ -105,7 +80,3 @@ const Login = () => {
 };
 
 export default Login;
-// function setName(newName: string): any {
-//   throw new Error("Function not implemented.");
-// }
-
