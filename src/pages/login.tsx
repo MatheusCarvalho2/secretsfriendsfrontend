@@ -1,15 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useState } from "react";
 import ButtonAccept from "../components/inputs/buttonaccept";
 import FormInputs from "../components/inputs/form";
 import "../style/login.css";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/Logo.svg'
-import { useSelector } from "react-redux";
-import { ProfileState } from "../store/profile/types";
 import { useDispatch } from 'react-redux';
-import { ApplicationState } from "../store/types";
-import { profileSignIn } from "../store/profile/actions";
+import { setEmailStore } from "../store/reducers/email";
+import api from "../server/api";
+import { setName } from "../store/reducers/name";
+import { setIsSigned } from "../store/reducers/isSigned";
+import { setToken } from "../store/reducers/token";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -32,16 +33,34 @@ const Login = () => {
   ];
 
   const dispatch = useDispatch();
-  const { profile, request } = useSelector<ApplicationState, ProfileState>((state) => state.profile);
 
-  const handleLogin = () => {
-    dispatch(profileSignIn({ email: email, password: password }))
-    if (request.loaded) {
-      window.location.href = '/home';
-    }
+  function handleStoreChange(userName: string, userToken: string) {
+    dispatch(setName(userName));
+    dispatch(setEmailStore(email));
+    dispatch(setIsSigned(true));
+    dispatch(setToken(userToken));
   }
 
-  console.log(profile);
+
+  const handleLogin = () => {
+    api.post('/login', {
+      user: {
+        email: email,
+        password: password,
+      }
+    }).then(response => {
+      if (response.status === 200) {
+        const userName = response.data.data.name;
+        const userToken = response.data.data.jtw;
+        console.log(userToken); // 401 Unauthorized do banco
+        handleStoreChange(userName, userToken)
+        window.location.href = '/home';
+      }
+    })
+      .catch(error => {
+        console.error("Erro:", error);
+      });
+  }
 
   return (
     <>
@@ -65,9 +84,7 @@ const Login = () => {
           </button>
           <ButtonAccept
             textButton="Login"
-            onClick={() => {
-              handleLogin()
-            }}
+            onClick={handleLogin}
           />
           <div className="links">
             <a href="">Esqueceu sua senha</a>
