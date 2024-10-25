@@ -19,7 +19,7 @@ function Home() {
     <div className='home-content'>
       <div className='home-head'>
         <img className="logo" src={LogoImage} alt="Logo do Secrets Friends" />
-        <h2>Olá {currentName}</h2>
+        <h2>Olá {currentName ? currentName : 'Amigo'}</h2>
       </div>
       <div className='img-text'>
         <img src={ImgHome} alt="Pessoa feliz por ter logado." />
