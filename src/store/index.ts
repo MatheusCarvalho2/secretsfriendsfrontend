@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import nameSlice from './reducers/name.ts';
 import emailSlice from './reducers/email.ts';
 import isSigned from './reducers/isSigned.ts';
-import tolkenSlice from './reducers/tolken.ts';
+import tokenSlice from './reducers/token.ts';
 import presentListSlice from './reducers/presentsList.ts';
 import secretFriendSlice from './reducers/secretFriend.ts';
 
@@ -11,7 +11,7 @@ const store = configureStore({
         name: nameSlice,
         email: emailSlice,
         isSigned: isSigned,
-        tolken: tolkenSlice,
+        tolken: tokenSlice,
         presents_list: presentListSlice,
         secret_friend: secretFriendSlice,
     }
