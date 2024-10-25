@@ -40,10 +40,10 @@ function Register() {
 
   const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(name);
 
     api.post('/signup', {
       user: {
+        name: name,
         email: email,
         password: password,
         password_confirmation: passwordConfirmation,
@@ -51,6 +51,7 @@ function Register() {
     })
       .then(response => {
         console.log(response.data);
+        window.location.href = '/';
       })
       .catch(error => {
         console.error("Erro:", error);
