@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { RootState } from '../store';
 import ImgHome from '../assets/images/ImgHome.png'
 import LogoImage from '../assets/images/Logo.svg'
 import ButtonAccept from '../components/inputs/buttonaccept'
-import '../style/home.css'
-// import { useEffect, useState } from 'react';
 import api from '../server/api';
+import '../style/home.css'
 import { useSelector } from 'react-redux';
 
 function Home() {
@@ -12,29 +11,9 @@ function Home() {
     api.delete('/logout')
   };
 
-  const currentName = useSelector((state: any) => {
-    console.log(state.name);
+  const currentName = useSelector((state: RootState) => {
     return state.name;
   });
-
-  console.log(currentName);
-
-  // const name = localStorage.getItem('name');
-
-  // const [userName, setUserName] = useState('');
-  // useEffect(() => {
-  //   api.get('/login')
-  //     .then(response => {
-  //       console.log(response);
-  //       console.log(response.data.name);
-
-  //       setUserName(response.data.email);
-  //     })
-  //     .catch(error => {
-  //       console.error("Error:", error);
-  //     });
-  // }, []);
-
 
   return (
     <div className='home-content'>
@@ -44,7 +23,7 @@ function Home() {
       </div>
       <div className='img-text'>
         <img src={ImgHome} alt="Pessoa feliz por ter logado." />
-        <h3>Crie o seu primeiro sorteio agora!</h3>
+        <h3 className='message-home'>Crie o seu primeiro sorteio agora!</h3>
       </div>
       <div className='buttons-home'>
         <ButtonAccept
