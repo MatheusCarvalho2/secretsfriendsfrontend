@@ -11,13 +11,13 @@
 }
 
 .login-img {
-  height: 150px;
-  width: 180px;
-  margin-bottom: 80px;
+  height: 10rem;
+  width: 12rem;
+  margin-bottom: 5rem;
 }
 
 .links {
-  width: 358px;
+  width: 22.5rem;
   align-items: flex-start;
   color: var(--primary-color);
   text-decoration: none;
@@ -27,24 +27,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 49px;
-  min-width: 358px;
-  border-radius: 10px;
-  border: solid 1px;
+  height: 3rem;
+  min-width: 22.5rem;
+  border-radius: 0.6rem;
+  border: solid 0.1rem;
   border-color: var(--primary-color);
-  margin-top: 4px;
-  margin-bottom: 16px;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
   align-items: center;
-  padding: 10px;
+  padding: 0.6rem;
 }
 
 .button-google img {
-  width: 30px;
-  height: 30px;
-  margin: 0px;
+  width: 2rem;
+  height: 2rem;
+  margin: 0rem;
 }
 
 .button-google span {
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--primary-color);
 }

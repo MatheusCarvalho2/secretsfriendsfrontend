@@ -8,11 +8,11 @@ label {
 }
 
 input {
-  margin-bottom: 12px;
-  height: 49px;
-  width: 358px;
-  border-radius: 10px;
-  border: solid 1px;
+  margin-bottom: 0.75rem;
+  height: 3rem;
+  width: 22.5rem;
+  border-radius: 0.6rem;
+  border: solid 0.1rem;
   border-color: var(--primary-color);
-  padding: 5px;
+  padding: 0.3rem;
 }

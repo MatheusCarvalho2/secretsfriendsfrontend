@@ -11,6 +11,7 @@
   justify-content: flex-start;
   align-items: center;
   margin: calc(2 * var(--gap));
+  padding-bottom: calc(10 * var(--gap));
 }
 
 .home-head h2 {
@@ -28,6 +29,14 @@
   padding-bottom: calc(1 * var(--gap));
 }
 
+.buttons-home {
+  padding-top: calc(10 * var(--gap));
+}
+
 .buttons-home button {
   margin-bottom: calc(2 * var(--gap));
+}
+
+.message-home {
+  font-size: 32px;
 }
