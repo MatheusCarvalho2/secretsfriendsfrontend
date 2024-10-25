@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = {
-    isSigned: ''
-};
+
+const initialState = false;
+
 const isSignedSlice = createSlice({
     name: 'isSigned',
     initialState,
     reducers: {
-        setIsSigned: (state, action) => {
-            state.isSigned = action.payload;
-        }
+        setIsSigned: (_state, action) => action.payload
     }
 });
 export const { setIsSigned } = isSignedSlice.actions;

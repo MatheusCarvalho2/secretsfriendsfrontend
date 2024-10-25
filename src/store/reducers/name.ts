@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = {
-    name: ''
-};
+
+const initialState = '';
+
 const nameSlice = createSlice({
     name: 'name',
     initialState,
     reducers: {
-        setName: (state, action) => {
-            state.name = action.payload;
-        }
+        setName: (_state, action) => action.payload,
     }
 });
 export const { setName } = nameSlice.actions;

@@ -1,15 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = {
-    presentList: []
-};
+
+const initialState: string[] = [];
+
 const presentListSlice = createSlice({
     name: 'presentList',
     initialState,
     reducers: {
-        setPresentList: (state, action) => {
-            state.presentList = action.payload;
-        }
+        setPresentList: (_state, action) => action.payload
     }
 });
+
 export const { setPresentList } = presentListSlice.actions;
 export default presentListSlice.reducer;
