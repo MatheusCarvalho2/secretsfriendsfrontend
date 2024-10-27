@@ -1,0 +1,11 @@
+.steps {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.mensagem {
+    color: gray;
+    padding: 20rem 1rem 20rem 1rem;
+}

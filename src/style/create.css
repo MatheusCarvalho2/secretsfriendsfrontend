@@ -1,0 +1,26 @@
+.breadcrumb {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-header {
+    max-width: 100vh;
+    margin: var(--gap);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    gap: 6rem;
+    text-align: center;
+}
+
+.register-header h2 {
+    font-size: 1rem;
+}
+
+.steps {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
