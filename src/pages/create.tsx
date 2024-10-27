@@ -1,10 +1,13 @@
 import FormInputs from '../components/inputs/form';
-import '../style/register.css'
+import '../style/create.css'
 import { useState } from 'react';
 import api from '../server/api';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
+import { useDispatch } from 'react-redux';
+import { setIdDraw } from '../store/reducers/idDraw';
+import status1Breadcrumb from '../assets/images/status-1.png'
 
 function Create() {
   const [drawName, setDrawName] = useState<string>('');
@@ -52,6 +55,8 @@ function Create() {
     },
   ];
 
+  const dispatch = useDispatch();
+
   const handleDraw = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -66,8 +71,11 @@ function Create() {
       },
     )
       .then(response => {
-        console.log(response.data);
-        if (response.status === 201) window.location.href = '/lista'
+        if (response.status === 201) {
+          const idSorteio = response.data.id;
+          dispatch(setIdDraw(idSorteio));
+          window.location.href = '/lista'
+        }
       })
       .catch(error => {
         console.error("Erro:", error);
@@ -77,14 +85,17 @@ function Create() {
 
   return (
     <>
-      <div className='register-header'>
-        <Link to="/home" className='back-arrow'>
-          <FaArrowLeft size={20} />
-        </Link>
-        <h2>Criar</h2>
-        <Link to="/home" className='back-arrow'>
-          <FaXmark size={20} />
-        </Link>
+      <div className='breadcrumb'>
+        <div className='register-header'>
+          <Link to="/home" className='back-arrow'>
+            <FaArrowLeft size={20} />
+          </Link>
+          <h2>Criar</h2>
+          <Link to="/home" className='back-arrow'>
+            <FaXmark size={20} />
+          </Link>
+        </div>
+        <img src={status1Breadcrumb} alt="Etapa um de três" className='steps' />
       </div>
       <form onSubmit={handleDraw} className='form'>
         <div className='form-inputs'>
