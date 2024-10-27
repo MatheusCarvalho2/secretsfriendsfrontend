@@ -6,6 +6,7 @@ import isSignedSlice from './reducers/isSigned.ts';
 import tokenSlice from './reducers/token.ts';
 import presentListSlice from './reducers/presentsList.ts';
 import secretFriendSlice from './reducers/secretFriend.ts';
+import idDrawSlice from './reducers/idDraw.ts'
 import storage from 'redux-persist/es/storage';
 
 const persistConfig = {
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     token: tokenSlice,
     presents_list: presentListSlice,
     secret_friend: secretFriendSlice,
+    id_draw: idDrawSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
