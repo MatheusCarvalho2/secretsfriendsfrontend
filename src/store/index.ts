@@ -8,6 +8,7 @@ import presentListSlice from './reducers/presentsList.ts';
 import secretFriendSlice from './reducers/secretFriend.ts';
 import idDrawSlice from './reducers/idDraw.ts'
 import storage from 'redux-persist/es/storage';
+import participantListSlice from './reducers/participantsList.ts'
 
 const persistConfig = {
     key: 'root',
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     presents_list: presentListSlice,
     secret_friend: secretFriendSlice,
     id_draw: idDrawSlice,
+    participant_list: participantListSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
