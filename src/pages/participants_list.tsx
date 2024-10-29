@@ -1,17 +1,24 @@
-import '../style/pasticipants.css'
+import '../style/participants_list.css'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
 import ButtonAccept from '../components/inputs/buttonaccept';
 import status2Breadcrumb from '../assets/images/status-2.png'
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 
 // import api from '../server/api';
 
 function ParticipantsList() {
 
-  // const handleModal = () => {
-  //   api.get()
-  // }
+  const handleModal = () => {
+    window.location.href = '/adicionar'
+  }
+
+  const participantsListStore = useSelector((state: RootState) => {
+    console.log(state.participant_list);
+    return state.participant_list;
+  });
 
   // const handleDrawUser = (event: React.FormEvent<HTMLFormElement>) => {
   //   event.preventDefault();
@@ -48,11 +55,11 @@ function ParticipantsList() {
           <img src={status2Breadcrumb} alt="Etapa um de três" className='steps' />
         </div>
         <div className='mensagem'>
-          <h3>Você não tem nenum partipante cadastrado</h3>
+          {participantsListStore ? <h3>Tem coisa</h3> : <h3>Você não tem nenum partipante cadastrado</h3>}
         </div>
         <ButtonAccept
           textButton="Adicionar"
-          onClick={() => { }}
+          onClick={handleModal}
         />
       </div>
     </>
