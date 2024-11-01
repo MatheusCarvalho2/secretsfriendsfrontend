@@ -55,7 +55,7 @@ function ParticipantsList() {
           <img src={status2Breadcrumb} alt="Etapa um de três" className='steps' />
         </div>
         <div className='mensagem'>
-          {participantsListStore ? <h3>Tem coisa</h3> : <h3>Você não tem nenum partipante cadastrado</h3>}
+          {participantsListStore.length > 0 ? <h3>Tem coisa</h3> : <h3>Você não tem nenhum partipante cadastrado</h3>}
         </div>
         <ButtonAccept
           textButton="Adicionar"
