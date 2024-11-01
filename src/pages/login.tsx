@@ -50,9 +50,10 @@ const Login = () => {
       }
     }).then(response => {
       if (response.status === 200) {
+        console.log(response.data.data);
         const userName = response.data.data.name;
-        const userToken = response.data.data.jtw;
-        console.log(userToken); // 401 Unauthorized do banco
+        const userToken = response.data.data.jti;
+        console.log(userToken);
         handleStoreChange(userName, userToken)
         window.location.href = '/home';
       }

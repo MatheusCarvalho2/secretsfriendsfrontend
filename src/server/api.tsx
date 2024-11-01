@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const token = localStorage.getItem('token');
+import store from "../store";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",
@@ -10,6 +9,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use(config => {
+  const token = store.getState().token;
   if (token) {
     config.headers['Authorization'] = `Bearer ${token}`;
     console.log("TEM TOKEN");
