@@ -32,16 +32,17 @@ function AddParticipant() {
     api.post('/participants', {
       name: '',
       email: emailAddParticipant,
-      draw: currentDrawId
+      draw_id: currentDrawId
     })
       .then(response => {
-        if (response.status === 200) {
+        if (response.status >= 200 && response.status <= 299) {
           dispatch(addParticipantList(emailAddParticipant));
           window.location.href = '/lista'
         }
       })
       .catch(error => {
         console.error("Erro:", error);
+
       });
   };
 
