@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ButtonAcceptInterface } from "../../interface/inputs/button";
-import "../../style/inputs/buttonaccept.css";
+import { ButtonAcceptInterface } from "../../interface/inputs/Button";
+import "../../style/inputs/ButtonAccept.css";
 
 const ButtonAccept = (props: ButtonAcceptInterface) => {
   const { textButton, onClick } = props;

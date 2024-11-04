@@ -1,5 +1,5 @@
-import FormInputs from '../components/inputs/form';
-import '../style/create.css'
+import FormInputs from '../components/inputs/Form';
+import '../style/Create.css'
 import { useState } from 'react';
 import api from '../server/api';
 import { Link } from 'react-router-dom';

@@ -1,5 +1,5 @@
-import FormInputs from "../components/inputs/form";
-import '../style/register.css'
+import FormInputs from "../components/inputs/Form";
+import '../style/Register.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';

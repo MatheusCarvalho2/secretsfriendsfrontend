@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ButtonAccept from "../components/inputs/buttonAccept";
-import FormInputs from "../components/inputs/form";
-import "../style/login.css";
+import ButtonAccept from "../components/inputs/ButtonAccept";
+import FormInputs from "../components/inputs/Form";
+import "../style/Login.css";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/Logo.svg'
 import { useDispatch } from 'react-redux';

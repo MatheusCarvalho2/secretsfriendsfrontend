@@ -1,8 +1,8 @@
-import '../style/add_participants.css'
+import '../style/AddParticipants.css'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
-import FormInputs from '../components/inputs/form';
+import FormInputs from '../components/inputs/Form';
 import { useState } from 'react';
 import api from '../server/api';
 import { useDispatch, useSelector } from 'react-redux';

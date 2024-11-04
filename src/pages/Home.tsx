@@ -1,9 +1,9 @@
 import { RootState } from '../store';
 import ImgHome from '../assets/images/ImgHome.png'
 import LogoImage from '../assets/images/Logo.svg'
-import ButtonAccept from '../components/inputs/buttonAccept'
+import ButtonAccept from '../components/inputs/ButtonAccept'
 import api from '../server/api';
-import '../style/home.css'
+import '../style/Home.css'
 import { useSelector } from 'react-redux';
 
 function Home() {
