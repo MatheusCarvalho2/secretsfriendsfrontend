@@ -1,11 +1,11 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Login from "./pages/login";
-import Register from "./pages/register";
-import Home from "./pages/home";
-import Create from "./pages/create";
-import ParticipantsList from "./pages/participants_list";
-import AddParticipant from "./pages/add_participantes";
-import DrawHeld from "./pages/draw_held";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
+import ParticipantsList from "./pages/ParticipantsList";
+import AddParticipant from "./pages/AddParticipants";
+import DrawHeld from "./pages/DrawHeld";
 
 const App = () => {
   return (
