@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Create from "./pages/create";
 import ParticipantsList from "./pages/participants_list";
 import AddParticipant from "./pages/add_participantes";
+import DrawHeld from "./pages/draw_held";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/criar" element={<Create />} />
         <Route path="/lista" element={<ParticipantsList />} />
         <Route path="/adicionar" element={<AddParticipant />} />
+        <Route path="/sorteio_realizado" element={<DrawHeld />} />
       </Routes>
     </Router>
   );
