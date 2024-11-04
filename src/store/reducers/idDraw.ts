@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = '';
 
 const idDrawSlice = createSlice({
-    name: 'id_draw',
+    name: 'idDraw',
     initialState,
     reducers: {
         setIdDraw: (_state, action) => action.payload,
