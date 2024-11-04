@@ -22,7 +22,7 @@ function Home() {
         <h2>Olá {currentName ? currentName : 'Amigo'}</h2>
       </div>
       <div className='img-text'>
-        <img src={ImgHome} alt="Pessoa feliz por ter logado." />
+        <img src={ImgHome} alt="Caixa de presente brana com uma fita azul." />
         <h3 className='message-home'>Crie o seu primeiro sorteio agora!</h3>
       </div>
       <div className='buttons-home'>
