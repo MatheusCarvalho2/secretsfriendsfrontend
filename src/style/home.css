@@ -37,7 +37,9 @@
 }
 
 .buttons-home {
-  padding-top: calc(10 * var(--gap));
+  position: fixed;
+  bottom: 2rem;
+  padding: 1rem 2rem;
 }
 
 .buttons-home button {
