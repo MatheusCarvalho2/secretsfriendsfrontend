@@ -1,17 +1,17 @@
 
 import { useState } from "react";
-import ButtonAccept from "../components/inputs/ButtonAccept";
-import FormInputs from "../components/inputs/Form";
-import "../style/Login.css";
+import ButtonAccept from "../../components/ButtonAccept/ButtonAccept";
+import FormInputs from "../../components/Form/Form";
+import "./Login.css";
 import { Link } from 'react-router-dom';
-import Logo from '../assets/images/Logo.svg'
+import Logo from '../../assets/images/Logo.svg'
 import { useDispatch } from 'react-redux';
-import { setEmailStore } from "../store/reducers/email";
-import api from "../server/api";
-import { setName } from "../store/reducers/name";
-import { setIsSigned } from "../store/reducers/isSigned";
-import { setToken } from "../store/reducers/token";
-import { setIdUser } from "../store/reducers/idUser";
+import { setEmailStore } from "../../store/reducers/email";
+import api from "../../server/api";
+import { setName } from "../../store/reducers/name";
+import { setIsSigned } from "../../store/reducers/isSigned";
+import { setToken } from "../../store/reducers/token";
+import { setIdUser } from "../../store/reducers/idUser";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");

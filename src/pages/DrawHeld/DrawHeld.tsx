@@ -1,8 +1,8 @@
-import ImgDrawHeld from '../assets/images/DrawHeld.png'
-import LogoImage from '../assets/images/Logo.svg'
-import ButtonAccept from '../components/inputs/ButtonAccept'
-import api from '../server/api';
-// import '../style/drawHeld.css'
+import ImgDrawHeld from '../../assets/images/DrawHeld.png'
+import LogoImage from '../../assets/images/Logo.svg'
+import ButtonAccept from '../../components/ButtonAccept/ButtonAccept'
+import api from '../../server/api';
+// import '../drawHeld.css'
 
 function DrawHeld() {
     const logout = () => {

@@ -1,13 +1,13 @@
-import FormInputs from '../components/inputs/Form';
-import '../style/Create.css'
+import FormInputs from '../../components/Form/Form';
+import './Create.css'
 import { useState } from 'react';
-import api from '../server/api';
+import api from '../../server/api';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
 import { useDispatch } from 'react-redux';
-import { setIdDraw } from '../store/reducers/idDraw';
-import status1Breadcrumb from '../assets/images/status-1.png'
+import { setIdDraw } from '../../store/reducers/idDraw';
+import status1Breadcrumb from '../../assets/images/status-1.png'
 
 function Create() {
   const [drawName, setDrawName] = useState<string>('');

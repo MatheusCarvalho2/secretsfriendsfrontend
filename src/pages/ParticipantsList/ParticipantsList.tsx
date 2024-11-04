@@ -1,12 +1,12 @@
-import '../style/ParticipantsList.css'
+import './ParticipantsList.css'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
-import ButtonAccept from '../components/inputs/ButtonAccept';
-import status2Breadcrumb from '../assets/images/status-2.png'
+import ButtonAccept from '../../components/ButtonAccept/ButtonAccept';
+import status2Breadcrumb from '../../assets/images/status-2.png'
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
-import api from '../server/api';
+import { RootState } from '../../store';
+import api from '../../server/api';
 
 function ParticipantsList() {
 

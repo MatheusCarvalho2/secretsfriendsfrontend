@@ -1,10 +1,10 @@
-import FormInputs from "../components/inputs/Form";
-import '../style/Register.css'
+import FormInputs from "../../components/Form/Form";
+import './Register.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from "react-icons/fa6";
-import api from '../server/api';
+import api from '../../server/api';
 
 function Register() {
   const [name, setName] = useState<string>('');

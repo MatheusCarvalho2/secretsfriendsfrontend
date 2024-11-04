@@ -1,5 +1,5 @@
-import { FormInterface } from "../../interface/inputs/Form";
-import "../../style/inputs/Form.css";
+import { FormInterface } from "../../interface/Form/Form";
+import "./Form.css";
 
 const FormInputs = (props: FormInterface) => {
   const { labelForInput, placeholderInput, typeInput, setInputValue } = props;

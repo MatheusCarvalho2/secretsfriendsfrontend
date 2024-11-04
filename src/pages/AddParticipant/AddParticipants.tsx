@@ -1,13 +1,13 @@
-import '../style/AddParticipants.css'
+import './AddParticipants.css'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
-import FormInputs from '../components/inputs/Form';
+import FormInputs from '../../components/Form/Form';
 import { useState } from 'react';
-import api from '../server/api';
+import api from '../../server/api';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
-import { addParticipantList } from '../store/reducers/participantsList';
+import { RootState } from '../../store';
+import { addParticipantList } from '../../store/reducers/participantsList';
 
 function AddParticipant() {
   const [emailAddParticipant, setEmailAddParticipant] = useState<string>('');
