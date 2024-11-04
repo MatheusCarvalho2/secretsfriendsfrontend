@@ -1,7 +1,7 @@
 import { RootState } from '../store';
 import ImgHome from '../assets/images/ImgHome.png'
 import LogoImage from '../assets/images/Logo.svg'
-import ButtonAccept from '../components/inputs/buttonaccept'
+import ButtonAccept from '../components/inputs/buttonAccept'
 import api from '../server/api';
 import '../style/home.css'
 import { useSelector } from 'react-redux';

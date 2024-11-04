@@ -1,6 +1,6 @@
 import ImgDrawHeld from '../assets/images/DrawHeld.png'
 import LogoImage from '../assets/images/Logo.svg'
-import ButtonAccept from '../components/inputs/buttonaccept'
+import ButtonAccept from '../components/inputs/buttonAccept'
 import api from '../server/api';
 // import '../style/drawHeld.css'
 
