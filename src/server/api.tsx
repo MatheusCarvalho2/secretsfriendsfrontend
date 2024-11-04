@@ -12,8 +12,7 @@ api.interceptors.request.use(config => {
   const token = store.getState().token;
   if (token) {
     config.headers['Authorization'] = `Bearer ${token}`;
-    console.log("TEM TOKEN");
-
+    console.log(token);
   }
   return config;
 }, error => {
