@@ -17,6 +17,8 @@ function AddParticipant() {
       placeholderInput: 'Ex: email@email.com',
       typeInput: 'email',
       setInputValue: setEmailAddParticipant,
+      inputName: 'email',
+      inputId: 'email-input'
     }
   ];
 
@@ -60,13 +62,9 @@ function AddParticipant() {
         </div>
         <form onSubmit={handleAddParticipant} className='form'>
           <div className='form-inputs'>
-            {formsParameters.map(formParameter =>
-              <FormInputs
-                labelForInput={formParameter.labelForInput}
-                placeholderInput={formParameter.placeholderInput}
-                typeInput={formParameter.typeInput}
-                setInputValue={formParameter.setInputValue}
-              />)}
+            {formsParameters.map((formParameter, index) =>
+              <FormInputs key={index} {...formParameter} />
+            )}
           </div>
           <button className='default-button' type="submit">Salvar</button>
         </form>

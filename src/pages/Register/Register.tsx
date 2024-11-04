@@ -17,24 +17,32 @@ function Register() {
       placeholderInput: 'Digite seu nome completo',
       typeInput: 'text',
       setInputValue: setName,
+      inputName: 'nome-completo',
+      inputId: 'nome-completo-input'
     },
     {
       labelForInput: 'Email',
       placeholderInput: 'Digite seu email',
       typeInput: 'email',
       setInputValue: setEmail,
+      inputName: 'email',
+      inputId: 'email-input'
     },
     {
       labelForInput: 'Senha',
       placeholderInput: 'Digite sua senha',
       typeInput: 'password',
       setInputValue: setPassword,
+      inputName: 'senha',
+      inputId: 'senha-input'
     },
     {
       labelForInput: 'Confirme sua senha',
       placeholderInput: 'Confirme sua senha',
       typeInput: 'password',
       setInputValue: setPasswordConfirmation,
+      inputName: 'confirmacao-senha',
+      inputId: 'confirmacao-senha-input'
     },
   ]
 
@@ -74,13 +82,9 @@ function Register() {
         </div>
         <form onSubmit={handleRegister} className='form'>
           <div className='form-inputs'>
-            {formsParameters.map(formParameter =>
-              <FormInputs
-                labelForInput={formParameter.labelForInput}
-                placeholderInput={formParameter.placeholderInput}
-                typeInput={formParameter.typeInput}
-                setInputValue={formParameter.setInputValue}
-              />)}
+            {formsParameters.map((formParameter, index) =>
+              <FormInputs key={index} {...formParameter} />
+            )}
           </div>
           <button className='default-button' type="submit">Cadastrar</button>
         </form>

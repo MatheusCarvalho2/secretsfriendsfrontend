@@ -22,36 +22,48 @@ function Create() {
       placeholderInput: 'Ex: Sorteio da Firma',
       typeInput: 'text',
       setInputValue: setDrawName,
+      inputName: 'nome-sorteio',
+      inputId: 'nome-sorteio-input'
     },
     {
       labelForInput: 'Valor mínimo',
       placeholderInput: 'Ex: 10,00',
       typeInput: 'text',
       setInputValue: setMinValue,
+      inputName: 'valor-minimo',
+      inputId: 'valor-minimo-input'
     },
     {
       labelForInput: 'Valor máximo',
       placeholderInput: 'Ex: 50,00',
       typeInput: 'text',
       setInputValue: setMaxValue,
+      inputName: 'valor-maximo',
+      inputId: 'valor-maximo-input'
     },
     {
       labelForInput: 'Data do Sorteio',
       placeholderInput: 'Ex: 10/12/2024',
       typeInput: 'text',
       setInputValue: setDateDraw,
+      inputName: 'data-sorteio',
+      inputId: 'data-sorteio-input'
     },
     {
       labelForInput: 'Data da troca de presentes',
       placeholderInput: 'Ex: 24/12/2024',
       typeInput: 'text',
       setInputValue: setGiftDate,
+      inputName: 'data-presentes',
+      inputId: 'data-presentes-input'
     },
     {
       labelForInput: 'Descrição do amigo secreto',
       placeholderInput: 'Ex: Amigo secreto da firma - 2024',
       typeInput: 'text',
       setInputValue: setDescriptionDraw,
+      inputName: 'descricao',
+      inputId: 'descricao-input'
     },
   ];
 
@@ -99,13 +111,9 @@ function Create() {
       </div>
       <form onSubmit={handleDraw} className='form'>
         <div className='form-inputs'>
-          {formsParameters.map(formParameter =>
-            <FormInputs
-              labelForInput={formParameter.labelForInput}
-              placeholderInput={formParameter.placeholderInput}
-              typeInput={formParameter.typeInput}
-              setInputValue={formParameter.setInputValue}
-            />)}
+          {formsParameters.map((formParameter, index) =>
+            <FormInputs key={index} {...formParameter} />
+          )}
         </div>
         <button className='default-button' type="submit">Próximo</button>
       </form>

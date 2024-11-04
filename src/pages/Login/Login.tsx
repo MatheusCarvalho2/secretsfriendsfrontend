@@ -18,18 +18,22 @@ const Login = () => {
 
   const [password, setPassword] = useState<string>("");
 
-  const createinput = [
+  const createInput = [
     {
       labelForInput: "Email",
       placeholderInput: "Digite seu email",
       typeInput: "email",
       setInputValue: setEmail,
+      inputName: 'email',
+      inputId: 'email-input'
     },
     {
       labelForInput: "Senha",
       placeholderInput: "Digite sua senha",
       typeInput: "password",
       setInputValue: setPassword,
+      inputName: 'senha',
+      inputId: 'senha-input'
     },
   ];
 
@@ -69,16 +73,9 @@ const Login = () => {
       <div className="global">
         <div className="login">
           <img className="login-img" src={Logo} alt="Logo do Secrets Friends" />
-
-          {createinput.map((input) => (
-            <FormInputs
-              labelForInput={input.labelForInput}
-              placeholderInput={input.placeholderInput}
-              typeInput={input.typeInput}
-              setInputValue={input.setInputValue}
-            />
+          {createInput.map((input, index) => (
+            <FormInputs key={index} {...input} />
           ))}
-
           <button className="button-google" type="button" value="">
             <img src="img\google.png" alt="" />
             <span>Continuar com o Google</span>

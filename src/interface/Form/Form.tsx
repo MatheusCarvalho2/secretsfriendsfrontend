@@ -3,4 +3,6 @@ export interface FormInterface {
   placeholderInput: string;
   typeInput: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  inputName: string;
+  inputId: string;
 }
