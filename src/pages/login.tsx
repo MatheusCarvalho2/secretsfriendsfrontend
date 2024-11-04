@@ -11,6 +11,7 @@ import api from "../server/api";
 import { setName } from "../store/reducers/name";
 import { setIsSigned } from "../store/reducers/isSigned";
 import { setToken } from "../store/reducers/token";
+import { setIdUser } from "../store/reducers/idUser";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -34,11 +35,12 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  function handleStoreChange(userName: string, userToken: string) {
+  function handleStoreChange(userName: string, userToken: string, userId: string) {
     dispatch(setName(userName));
     dispatch(setEmailStore(email));
     dispatch(setIsSigned(true));
     dispatch(setToken(userToken));
+    dispatch(setIdUser(userId))
   }
 
 
@@ -49,12 +51,11 @@ const Login = () => {
         password: password,
       }
     }).then(response => {
-      if (response.status === 200) {
-        console.log(response.data.data);
+      if (response.status >= 200 && response.status <= 299) {
         const userName = response.data.data.name;
         const userToken = response.data.data.jti;
-        console.log(userToken);
-        handleStoreChange(userName, userToken)
+        const userId = response.data.data.id;
+        handleStoreChange(userName, userToken, userId)
         window.location.href = '/home';
       }
     })
