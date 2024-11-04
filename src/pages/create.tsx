@@ -71,7 +71,7 @@ function Create() {
       },
     )
       .then(response => {
-        if (response.status === 201) {
+        if (response.status >= 200 && response.status <= 299) {
           const idSorteio = response.data.id;
           dispatch(setIdDraw(idSorteio));
           window.location.href = '/lista'
@@ -107,8 +107,7 @@ function Create() {
               setInputValue={formParameter.setInputValue}
             />)}
         </div>
-
-        <button className='button-padrao' type="submit">Próximo</button>
+        <button className='default-button' type="submit">Próximo</button>
       </form>
     </>
   )

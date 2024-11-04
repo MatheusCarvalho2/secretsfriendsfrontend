@@ -1,4 +1,4 @@
-// import '../style/add_participants.css'
+import '../style/add_participants.css'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
@@ -23,7 +23,7 @@ function AddParticipant() {
   const dispatch = useDispatch();
 
   const currentDrawId = useSelector((state: RootState) => {
-    return state.id_draw;
+    return state.idDraw;
   });
 
   const handleAddParticipant = (event: React.FormEvent<HTMLFormElement>) => {
@@ -68,7 +68,7 @@ function AddParticipant() {
                 setInputValue={formParameter.setInputValue}
               />)}
           </div>
-          <button className='button-padrao' type="submit">Salvar</button>
+          <button className='default-button' type="submit">Salvar</button>
         </form>
       </div>
     </>
