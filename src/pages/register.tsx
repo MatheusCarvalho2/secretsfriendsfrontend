@@ -50,8 +50,9 @@ function Register() {
       },
     })
       .then(response => {
-        console.log(response.data);
-        window.location.href = '/';
+        if (response.status >= 200 && response.status <= 299) {
+          window.location.href = '/';
+        }
       })
       .catch(error => {
         console.error("Erro:", error);
@@ -81,8 +82,7 @@ function Register() {
                 setInputValue={formParameter.setInputValue}
               />)}
           </div>
-
-          <button className='button-padrao' type="submit">Cadastrar</button>
+          <button className='default-button' type="submit">Cadastrar</button>
         </form>
       </div>
     </>
