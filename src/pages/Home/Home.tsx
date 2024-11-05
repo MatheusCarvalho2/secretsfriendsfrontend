@@ -2,14 +2,10 @@ import { RootState } from '../../store';
 import ImgHome from '../../assets/images/ImgHome.png'
 import LogoImage from '../../assets/images/Logo.svg'
 import ButtonAccept from '../../components/ButtonAccept/ButtonAccept'
-import api from '../../server/api';
 import './Home.css'
 import { useSelector } from 'react-redux';
 
 function Home() {
-  const logout = () => {
-    api.delete('/logout')
-  };
 
   const currentName = useSelector((state: RootState) => {
     return state.name;
@@ -26,10 +22,6 @@ function Home() {
         <h3 className='message-home'>Crie o seu primeiro sorteio agora!</h3>
       </div>
       <div className='buttons-home'>
-        <ButtonAccept
-          textButton='Logout'
-          onClick={logout}
-        />
         <ButtonAccept
           textButton="Criar"
           onClick={() => { window.location.href = '/criar' }}
