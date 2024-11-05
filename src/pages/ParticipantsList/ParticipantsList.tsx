@@ -37,7 +37,7 @@ function ParticipantsList() {
     )
       .then(response => {
         if (response.status >= 200 && response.status <= 299) {
-          window.location.href = '/sorteio_realizado'
+          window.location.href = '/email_enviado'
         }
       })
       .catch(error => {

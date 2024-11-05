@@ -6,6 +6,7 @@ import Create from "./pages/Create/Create";
 import ParticipantsList from "./pages/ParticipantsList/ParticipantsList";
 import AddParticipant from "./pages/AddParticipant/AddParticipants";
 import DrawHeld from "./pages/DrawHeld/DrawHeld";
+import DrawSent from "./pages/DrawSent/DrawSent";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/lista" element={<ParticipantsList />} />
         <Route path="/adicionar" element={<AddParticipant />} />
         <Route path="/sorteio_realizado" element={<DrawHeld />} />
+        <Route path="/email_enviado" element={<DrawSent />} />
       </Routes>
     </Router>
   );
