@@ -1,4 +1,3 @@
-import './AddParticipants.css'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';

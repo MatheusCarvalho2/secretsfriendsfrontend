@@ -2,15 +2,12 @@ import ImgDrawHeld from '../../assets/images/DrawHeld.png'
 import LogoImage from '../../assets/images/Logo.svg'
 import ButtonAccept from '../../components/ButtonAccept/ButtonAccept'
 import api from '../../server/api';
-// import '../drawHeld.css'
 
 function DrawHeld() {
     const logout = () => {
         api.delete('/logout')
             .then(response => {
                 if (response.status >= 200 && response.status <= 299) {
-                    console.log(response);
-
                     window.location.href = '/home'
                 }
             })
