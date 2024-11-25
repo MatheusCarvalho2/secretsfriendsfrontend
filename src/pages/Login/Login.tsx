@@ -47,7 +47,6 @@ const Login = () => {
     dispatch(setIdUser(userId))
   }
 
-
   const handleLogin = () => {
     api.post('/login', {
       user: {
@@ -57,7 +56,7 @@ const Login = () => {
     }).then(response => {
       if (response.status >= 200 && response.status <= 299) {
         const userName = response.data.data.name;
-        const userToken = response.data.data.jti;
+        const userToken = response.headers.authorization;
         const userId = response.data.data.id;
         handleStoreChange(userName, userToken, userId)
         window.location.href = '/home';
