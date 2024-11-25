@@ -1,4 +1,4 @@
-import { RootState } from '../../store';
+import { clearPersistedStore, RootState } from '../../store';
 import ImgDrawHeld from '../../assets/images/DrawHeld.png'
 import LogoImage from '../../assets/images/Logo.svg'
 import ButtonAccept from '../../components/ButtonAccept/ButtonAccept'
@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 function DrawHeld() {
     const participantsList = useSelector((state: RootState) => state.participantList);
     const secretFriend = useSelector((state: RootState) => state.secretFriend);
-
+    // const currentDrawId = useSelector((state: RootState) => state.idDraw);
 
     function sendEmails() {
         participantsList.forEach((participant: string) => {
@@ -34,11 +34,18 @@ function DrawHeld() {
         });
     }
 
+    // function teste() {
+    //     api.get(`/draws/${currentDrawId}`)
+    //         .then(response => console.log(response.data)
+    //         )
+    // }
+
     const logout = () => {
         api.delete('/logout')
             .then(response => {
                 if (response.status >= 200 && response.status <= 299) {
-                    window.location.href = '/home'
+                    clearPersistedStore()
+                    window.location.href = '/'
                 }
             })
             .catch(error => {
