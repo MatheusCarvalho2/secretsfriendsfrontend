@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 function DrawHeld() {
     const participantsList = useSelector((state: RootState) => state.participantList);
     const secretFriend = useSelector((state: RootState) => state.secretFriend);
-    // const currentDrawId = useSelector((state: RootState) => state.idDraw);
+    const currentDrawId = useSelector((state: RootState) => state.idDraw);
 
     function sendEmails() {
         participantsList.forEach((participant: string) => {
@@ -34,11 +34,11 @@ function DrawHeld() {
         });
     }
 
-    // function teste() {
-    //     api.get(`/draws/${currentDrawId}`)
-    //         .then(response => console.log(response.data)
-    //         )
-    // }
+    function showParticipants() {
+        api.get(`/draws/${currentDrawId}`)
+            .then(response => console.log(response.data)
+            )
+    }
 
     const logout = () => {
         api.delete('/logout')
@@ -63,6 +63,10 @@ function DrawHeld() {
                 <img src={ImgDrawHeld} alt="Caixa de presente aberta saindo confetes de dentro." />
             </div>
             <div className='buttons-home'>
+                <ButtonAccept
+                    textButton='Mostra amigos'
+                    onClick={showParticipants}
+                />
                 <ButtonAccept
                     textButton='Sorteios'
                     onClick={sendEmails}
