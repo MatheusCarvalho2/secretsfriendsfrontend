@@ -12,7 +12,6 @@ api.interceptors.request.use(config => {
   const token = store.getState().token;
   if (token) {
     config.headers['Authorization'] = `${token}`;
-    console.log("Token:", token);
   }
   return config;
 }, error => {
