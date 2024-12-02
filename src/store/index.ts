@@ -38,7 +38,6 @@ export const persistor = persistStore(store);
 
 export const clearPersistedStore = () => {
     persistor.purge().then(() => {
-        console.log("Store foi apagada com sucesso!");
     });
 };
 
