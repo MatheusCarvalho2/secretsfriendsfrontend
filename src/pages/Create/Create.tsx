@@ -5,9 +5,10 @@ import api from '../../server/api';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setIdDraw } from '../../store/reducers/idDraw';
 import status1Breadcrumb from '../../assets/images/status-1.png'
+import { RootState } from '../../store';
 
 function Create() {
   const [drawName, setDrawName] = useState<string>('');
@@ -68,7 +69,7 @@ function Create() {
   ];
 
   const dispatch = useDispatch();
-
+  const currentUserId = useSelector((state: RootState) => state.idUser);
   const handleDraw = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -79,7 +80,8 @@ function Create() {
         max_value: maxValue,
         date_draws: dateDraw,
         date_present: giftDate,
-        description: descriptionDraw
+        description: descriptionDraw,
+        user_id: currentUserId
       },
     )
       .then(response => {
