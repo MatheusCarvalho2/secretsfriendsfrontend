@@ -6,7 +6,6 @@ import ButtonAccept from '../../components/ButtonAccept/ButtonAccept';
 import status2Breadcrumb from '../../assets/images/status-2.png'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import api from '../../server/api';
 
 function ParticipantsList() {
 
@@ -18,31 +17,8 @@ function ParticipantsList() {
     return state.participantList;
   });
 
-  const currentDrawId = useSelector((state: RootState) => {
-    return state.idDraw;
-  });
-
-  const currentUserId = useSelector((state: RootState) => {
-    return state.idUser;
-  })
-
   const handleFinish = () => {
-    api.post('/draw_users',
-      {
-        "owner": true,
-        "suggestion": '',
-        "user_id": currentUserId,
-        "draw_id": currentDrawId,
-      },
-    )
-      .then(response => {
-        if (response.status >= 200 && response.status <= 299) {
-          window.location.href = '/sorteio_realizado'
-        }
-      })
-      .catch(error => {
-        console.error("Erro:", error);
-      });
+    window.location.href = '/sorteio_realizado'
   };
 
   return (
@@ -74,7 +50,7 @@ function ParticipantsList() {
             onClick={handleModal}
           />
           <ButtonAccept
-            textButton="Finalizar"
+            textButton="Ok"
             onClick={handleFinish}
           />
         </div>
