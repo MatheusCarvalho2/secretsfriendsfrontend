@@ -31,11 +31,11 @@ function DrawHeld() {
             </div>
             <div className='buttons-home'>
                 <ButtonAccept
-                    textButton='Mostra amigos'
+                    textButton='Sorteia'
                     onClick={showParticipants}
                 />
                 <ButtonAccept
-                    textButton='Sorteio'
+                    textButton='Mostra amigos'
                     onClick={returnDraw}
                 />
             </div>
