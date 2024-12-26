@@ -6,15 +6,13 @@ import api from '../../server/api';
 import { useSelector } from 'react-redux';
 
 function DrawHeld() {
-    const secretFriend = useSelector((state: RootState) => state.secretFriend);
     const currentDrawId = useSelector((state: RootState) => state.idDraw);
 
     function returnDraw() {
-        console.log(secretFriend);
-        window.location.href = "/email_enviado";
+        window.location.href = "/envia_email";
     }
 
-    function showParticipants() {
+    function showAndDraw() {
         api.get(`/draws/${currentDrawId}`)
             .then(response => console.log(response.data)
             )
@@ -32,10 +30,10 @@ function DrawHeld() {
             <div className='buttons-home'>
                 <ButtonAccept
                     textButton='Sorteia'
-                    onClick={showParticipants}
+                    onClick={showAndDraw}
                 />
                 <ButtonAccept
-                    textButton='Mostra amigos'
+                    textButton='Ok'
                     onClick={returnDraw}
                 />
             </div>

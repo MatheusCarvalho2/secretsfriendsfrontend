@@ -7,6 +7,7 @@ import ParticipantsList from "./pages/ParticipantsList/ParticipantsList";
 import AddParticipant from "./pages/AddParticipant/AddParticipants";
 import DrawHeld from "./pages/DrawHeld/DrawHeld";
 import DrawSent from "./pages/DrawSent/DrawSent";
+import DrawSentConfirmation from "./pages/DrawSentConfirmation/DrawSentConfirmation";
 
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
         <Route path="/lista" element={<ParticipantsList />} />
         <Route path="/adicionar" element={<AddParticipant />} />
         <Route path="/sorteio_realizado" element={<DrawHeld />} />
-        <Route path="/email_enviado" element={<DrawSent />} />
+        <Route path="/envia_email" element={<DrawSent />} />
+        <Route path="/emails_enviados" element={<DrawSentConfirmation />} />
       </Routes>
     </Router>
   );
