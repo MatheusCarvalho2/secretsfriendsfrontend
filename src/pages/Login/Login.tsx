@@ -75,17 +75,17 @@ const Login = () => {
           {createInput.map((input, index) => (
             <FormInputs key={index} {...input} />
           ))}
-          <button className="button-google" type="button" value="">
+          {/* <button className="button-google" type="button" value="">
             <img src="img\google.png" alt="" />
             <span>Continuar com o Google</span>
             <span></span>
-          </button>
+          </button> */}
           <ButtonAccept
             textButton="Login"
             onClick={handleLogin}
           />
           <div className="links">
-            <a href="">Esqueceu sua senha</a>
+            {/* <a href="">Esqueceu sua senha</a> */}
             <Link to="/cadastro">Não possui conta? Cadastre-se!</Link>
           </div>
         </div>
