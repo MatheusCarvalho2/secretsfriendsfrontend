@@ -1,11 +1,24 @@
 import ImgDrawSent from '../../assets/images/mark EmailRead.png'
 import LogoImage from '../../assets/images/Logo.svg'
 import ButtonAccept from '../../components/ButtonAccept/ButtonAccept'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import api from '../../server/api';
 
 function DrawSent() {
+    const currentDrawId = useSelector((state: RootState) => state.idDraw);
+
     function sendEmails() {
-        console.log("Fazer a rota para back enviar emails")
-        window.location.href = '/emails_enviados'
+        const params = { id: currentDrawId }
+        api.post(`/email`, params)
+            .then(response => {
+                if (response.status >= 200 && response.status <= 299) {
+                    window.location.href = "/emails_enviados";
+                }
+            })
+            .catch(error => {
+                console.error("Erro:", error);
+            });
     }
 
     return (
