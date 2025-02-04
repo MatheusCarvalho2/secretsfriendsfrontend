@@ -8,6 +8,8 @@ import AddParticipant from "./pages/AddParticipant/AddParticipants";
 import DrawHeld from "./pages/DrawHeld/DrawHeld";
 import DrawSent from "./pages/DrawSent/DrawSent";
 import DrawSentConfirmation from "./pages/DrawSentConfirmation/DrawSentConfirmation";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import ResetPasswordInfo from "./pages/ResetPasswordInfo/ResetPasswordInfo";
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/sorteio_realizado" element={<DrawHeld />} />
         <Route path="/envia_email" element={<DrawSent />} />
         <Route path="/emails_enviados" element={<DrawSentConfirmation />} />
+        <Route path="/esqueci-minha_senha" element={<ResetPassword />} />
+        <Route path="/informacao" element={<ResetPasswordInfo />} />
       </Routes>
     </Router>
   );

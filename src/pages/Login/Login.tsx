@@ -85,7 +85,7 @@ const Login = () => {
             onClick={handleLogin}
           />
           <div className="links">
-            {/* <a href="">Esqueceu sua senha</a> */}
+            <Link to="/esqueci-minha_senha">Esqueceu sua senha</Link>
             <Link to="/cadastro">Não possui conta? Cadastre-se!</Link>
           </div>
         </div>
