@@ -10,6 +10,8 @@ import DrawSent from "./pages/DrawSent/DrawSent";
 import DrawSentConfirmation from "./pages/DrawSentConfirmation/DrawSentConfirmation";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import ResetPasswordInfo from "./pages/ResetPasswordInfo/ResetPasswordInfo";
+import NewPassword from "./pages/NewPassword/NewPassword";
+import NewPasswordInfo from "./pages/NewPasswordInfo/NewPasswordInfo";
 
 const App = () => {
   return (
@@ -26,6 +28,8 @@ const App = () => {
         <Route path="/emails_enviados" element={<DrawSentConfirmation />} />
         <Route path="/esqueci-minha_senha" element={<ResetPassword />} />
         <Route path="/informacao" element={<ResetPasswordInfo />} />
+        <Route path="/password/edit" element={<NewPassword />} />
+        <Route path="/informacao_senha" element={<NewPasswordInfo />} />
       </Routes>
     </Router>
   );
