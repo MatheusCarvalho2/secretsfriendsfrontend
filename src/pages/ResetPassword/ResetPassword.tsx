@@ -6,8 +6,12 @@ import FormInputs from "../../components/Form/Form";
 import ButtonAccept from "../../components/ButtonAccept/ButtonAccept";
 import api from "../../server/api";
 import "./ResetPassword.css";
+import { useDispatch } from "react-redux";
+import { setEmailResetPasswordStore } from "../../store/reducers/emailResetPassword";
 
 const ResetPassword = () => {
+    const dispatch = useDispatch();
+
     const [email, setEmail] = useState<string>("");
 
     const createInput = [
@@ -28,6 +32,7 @@ const ResetPassword = () => {
         api.post(`/password`, data)
             .then(response => {
                 if (response.status >= 200 && response.status <= 299) {
+                    dispatch(setEmailResetPasswordStore(data.user.email));
                     window.location.href = "/informacao";
                 }
             })
