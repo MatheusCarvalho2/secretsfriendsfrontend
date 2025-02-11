@@ -70,7 +70,7 @@ function Register() {
 
   return (
     <>
-      <div className="register">
+      <div className="breadcrumb">
         <div className='register-header'>
           <Link to="/" className='back-arrow'>
             <FaArrowLeft size={20} />
