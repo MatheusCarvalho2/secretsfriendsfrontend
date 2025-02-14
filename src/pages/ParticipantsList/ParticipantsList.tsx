@@ -4,8 +4,9 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
 import ButtonAccept from '../../components/ButtonAccept/ButtonAccept';
 import status2Breadcrumb from '../../assets/images/status-2.png'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import { removeParticipant } from '../../store/reducers/participantsList';
 
 function ParticipantsList() {
 
@@ -20,6 +21,9 @@ function ParticipantsList() {
   const handleFinish = () => {
     window.location.href = '/sorteio_realizado'
   };
+
+  const dispatch = useDispatch();
+
 
   return (
     <>
@@ -41,6 +45,9 @@ function ParticipantsList() {
             participantsListStore.map((participant, index) => (
               <div className='message-participant' key={index}>
                 <h3>{index} - {participant}</h3>
+                <button className='delete-button' type="button" name="delete" onClick={() => {
+                  dispatch(removeParticipant(participant));
+                }}>X</button>
               </div>
             )) : <h3>Você não tem nenhum partipante cadastrado</h3>}
         </div>

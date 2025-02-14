@@ -8,9 +8,12 @@ const participantListSlice = createSlice({
     reducers: {
         addParticipantList: (state, action: PayloadAction<string>) => {
             state.push(action.payload);
+        },
+        removeParticipant: (state, action: PayloadAction<string>) => {
+            return state.filter(email => email !== action.payload);
         }
     }
 });
 
-export const { addParticipantList } = participantListSlice.actions;
+export const { addParticipantList, removeParticipant } = participantListSlice.actions;
 export default participantListSlice.reducer;
