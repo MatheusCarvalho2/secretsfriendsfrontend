@@ -7,11 +7,12 @@
 
 .message {
     color: gray;
-    padding: 15rem 1rem 20rem 1rem;
+    padding: 2rem 1rem 2rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 380px;
+    text-align: center;
 }
 
 .message-participant {
