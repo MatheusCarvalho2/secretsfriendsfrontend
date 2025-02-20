@@ -11,7 +11,7 @@ import { setEmailResetPasswordStore } from "../../store/reducers/emailResetPassw
 
 const ResetPassword = () => {
     const dispatch = useDispatch();
-
+    const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState<string>("");
 
     const createInput = [
@@ -26,9 +26,12 @@ const ResetPassword = () => {
     ];
 
     function sendEmail() {
+        setLoading(true);
+
         const data = {
             user: { email: email },
         };
+
         api.post(`/password`, data)
             .then(response => {
                 if (response.status >= 200 && response.status <= 299) {
@@ -38,6 +41,9 @@ const ResetPassword = () => {
             })
             .catch(error => {
                 console.error("Erro:", error);
+            })
+            .finally(() => {
+                setLoading(false)
             });
     }
 
@@ -59,16 +65,21 @@ const ResetPassword = () => {
                 ))}
             </div>
 
-            <div className="message-info">
+            {!loading && <div className="message-info">
                 <p><strong>Esqueceu sua senha?</strong></p>
                 <p>Após inserir seu email,você será direcionado para sua caixa de entrada um link para redefinição de senha!
                 </p>
-            </div>
+            </div>}
+
+            {loading && <div className="message-info">
+                <p><strong>Enviando...</strong></p>
+            </div>}
 
             <div className='buttons-list'>
                 <ButtonAccept
-                    textButton="Enviar Email"
+                    textButton={loading ? "Enviando..." : "Enviar Email"}
                     onClick={sendEmail}
+                    disabled={loading}
                 />
             </div>
         </div>

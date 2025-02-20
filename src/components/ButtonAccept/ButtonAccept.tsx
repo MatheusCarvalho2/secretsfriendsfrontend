@@ -3,7 +3,7 @@ import { ButtonAcceptInterface } from "../../interface/Button/Button";
 import "./ButtonAccept.css";
 
 const ButtonAccept = (props: ButtonAcceptInterface) => {
-  const { textButton, onClick } = props;
+  const { textButton, onClick, disabled = false } = props;
 
   const [isPulsing, setIsPulsing] = useState(false);
 
@@ -15,7 +15,7 @@ const ButtonAccept = (props: ButtonAcceptInterface) => {
     }, 300);
   };
   return (
-    <button className={isPulsing ? "pulsing" : "buttonaccept"} onClick={handleClick}>
+    <button className={isPulsing ? "pulsing" : "buttonaccept"} onClick={handleClick} disabled={disabled}>
       {textButton}
     </button>
   );
