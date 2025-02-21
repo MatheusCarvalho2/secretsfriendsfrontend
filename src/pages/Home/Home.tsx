@@ -6,7 +6,6 @@ import './Home.css'
 import { useSelector } from 'react-redux';
 
 function Home() {
-
   const currentName = useSelector((state: RootState) => {
     return state.name;
   });
