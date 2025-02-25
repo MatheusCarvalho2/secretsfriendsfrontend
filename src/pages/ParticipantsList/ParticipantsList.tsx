@@ -10,7 +10,6 @@ import { addParticipantList, removeParticipant } from '../../store/reducers/part
 import { useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import api from '../../server/api';
-import FormInputs from '../../components/Form/Form';
 
 function ParticipantsList() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,16 +19,7 @@ function ParticipantsList() {
   });
 
   const [emailAddParticipant, setEmailAddParticipant] = useState<string>('');
-  const formsParameters = [
-    {
-      labelForInput: 'Email',
-      placeholderInput: 'Ex: email@email.com',
-      typeInput: 'email',
-      setInputValue: setEmailAddParticipant,
-      inputName: 'email',
-      inputId: 'email-input'
-    }
-  ];
+  const [selectedParticipant, setSelectedParticipant] = useState('');
 
   const dispatch = useDispatch();
 
@@ -65,6 +55,12 @@ function ParticipantsList() {
     window.location.href = '/sorteio_realizado'
   };
 
+  const handleEditClick = (participant: string) => {
+    dispatch(removeParticipant(participant));
+    setSelectedParticipant(participant);
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <div className='home-content'>
@@ -84,11 +80,16 @@ function ParticipantsList() {
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <h2 className='title-modal'>Informações do participante</h2>
 
-          <form onSubmit={handleAddParticipant} className='form-modal'>
+          <form onSubmit={handleAddParticipant} className='form-modal' method="Post">
             <div className='form-inputs'>
-              {formsParameters.map((formParameter, index) =>
-                <FormInputs key={index} {...formParameter} />
-              )}
+              <label htmlFor='email-input'>'Email'</label>
+              <input
+                type='email'
+                placeholder={selectedParticipant ? selectedParticipant : 'Ex: email@email.com'}
+                name='email'
+                id='email-input'
+                onChange={(event) => setEmailAddParticipant(event.target.value)}
+              />
             </div>
             <button className='button-modal' type="submit">Salvar</button>
           </form>
@@ -99,10 +100,20 @@ function ParticipantsList() {
             participantsListStore.map((participant, index) => (
               <div className='message-participant' key={index}>
                 <h3>{index} - {participant}</h3>
-                <button className='delete-button' type="button" name="delete" onClick={() => {
-                  dispatch(removeParticipant(participant));
-                }}>X</button>
+                <div className='edition-buttons'>
+
+                  <button className='delete-button' type="button" name="delete" onClick={() => {
+                    dispatch(removeParticipant(participant));
+                  }}>X</button>
+
+                  <button className='edit-button' type="button" name="edit" onClick={() => {
+                    handleEditClick(participant)
+                  }}>
+                    <img src="src/assets/images/edit_icon.png" alt="Editar" className="icon" />
+                  </button>
+                </div>
               </div>
+
             )) : <h3>Você não tem nenhum partipante cadastrado</h3>}
         </div>
 
