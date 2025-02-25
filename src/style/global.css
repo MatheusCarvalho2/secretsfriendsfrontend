@@ -33,5 +33,17 @@ a {
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.padding-8px {
+  padding: 8px;
+}
+
+.color-font-gray {
+  color: gray;
 }
