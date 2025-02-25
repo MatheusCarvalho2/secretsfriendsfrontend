@@ -7,25 +7,31 @@ import status2Breadcrumb from '../../assets/images/status-2.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { addParticipantList, removeParticipant } from '../../store/reducers/participantsList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import api from '../../server/api';
 
 function ParticipantsList() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const participantsListStore = useSelector((state: RootState) => {
     return state.participantList;
   });
 
-  const [emailAddParticipant, setEmailAddParticipant] = useState<string>('');
-  const [selectedParticipant, setSelectedParticipant] = useState('');
-
-  const dispatch = useDispatch();
-
   const currentDrawId = useSelector((state: RootState) => {
     return state.idDraw;
   });
+
+  const [emailAddParticipant, setEmailAddParticipant] = useState<string>('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedParticipant, setSelectedParticipant] = useState('');
+
+  console.log(selectedParticipant);
+
+
+  useEffect(() => {
+    setSelectedParticipant(selectedParticipant || '');
+  }, [selectedParticipant])
+
+  const dispatch = useDispatch();
 
   const handleAddParticipant = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -58,6 +64,7 @@ function ParticipantsList() {
   const handleEditClick = (participant: string) => {
     dispatch(removeParticipant(participant));
     setSelectedParticipant(participant);
+    setEmailAddParticipant(participant)
     setIsModalOpen(true);
   };
 
@@ -77,6 +84,10 @@ function ParticipantsList() {
           <img src={status2Breadcrumb} alt="Etapa um de três" className='steps' />
         </div>
 
+        <div className='padding-8px'>
+          <h2>Lista de Participantes</h2>
+        </div>
+
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <h2 className='title-modal'>Informações do participante</h2>
 
@@ -85,9 +96,10 @@ function ParticipantsList() {
               <label htmlFor='email-input'>'Email'</label>
               <input
                 type='email'
-                placeholder={selectedParticipant ? selectedParticipant : 'Ex: email@email.com'}
+                placeholder='Ex: email@email.com'
                 name='email'
                 id='email-input'
+                value={emailAddParticipant}
                 onChange={(event) => setEmailAddParticipant(event.target.value)}
               />
             </div>
@@ -99,7 +111,7 @@ function ParticipantsList() {
           {participantsListStore.length > 0 ?
             participantsListStore.map((participant, index) => (
               <div className='message-participant' key={index}>
-                <h3>{index} - {participant}</h3>
+                <p>{index} - {participant}</p>
                 <div className='edition-buttons'>
 
                   <button className='delete-button' type="button" name="delete" onClick={() => {
@@ -114,7 +126,7 @@ function ParticipantsList() {
                 </div>
               </div>
 
-            )) : <h3>Você não tem nenhum partipante cadastrado</h3>}
+            )) : <p className='color-font-gray'>Você não tem nenhum<br /> partipante cadastrado</p>}
         </div>
 
         <div className='buttons-list'>
@@ -123,7 +135,7 @@ function ParticipantsList() {
             onClick={() => setIsModalOpen(true)}
           />
           <ButtonAccept
-            textButton="Ok"
+            textButton="Enviar"
             onClick={handleFinish}
           />
         </div>
