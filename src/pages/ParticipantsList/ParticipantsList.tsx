@@ -7,7 +7,7 @@ import status2Breadcrumb from '../../assets/images/status-2.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { addParticipantList, removeParticipant } from '../../store/reducers/participantsList';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import api from '../../server/api';
 
@@ -20,16 +20,8 @@ function ParticipantsList() {
     return state.idDraw;
   });
 
-  const [emailAddParticipant, setEmailAddParticipant] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedParticipant, setSelectedParticipant] = useState('');
-
-  console.log(selectedParticipant);
-
-
-  useEffect(() => {
-    setSelectedParticipant(selectedParticipant || '');
-  }, [selectedParticipant])
+  const [emailAddParticipant, setEmailAddParticipant] = useState<string>('');
 
   const dispatch = useDispatch();
 
@@ -44,7 +36,7 @@ function ParticipantsList() {
       .then(response => {
         if (response.status >= 200 && response.status <= 299) {
           dispatch(addParticipantList(emailAddParticipant));
-          window.location.href = '/lista'
+          setIsModalOpen(false);
         }
       })
       .catch(error => {
@@ -63,7 +55,6 @@ function ParticipantsList() {
 
   const handleEditClick = (participant: string) => {
     dispatch(removeParticipant(participant));
-    setSelectedParticipant(participant);
     setEmailAddParticipant(participant)
     setIsModalOpen(true);
   };
@@ -132,7 +123,10 @@ function ParticipantsList() {
         <div className='buttons-list'>
           <ButtonAccept
             textButton="Adicionar"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              setEmailAddParticipant('');
+              setIsModalOpen(true);
+            }}
           />
           <ButtonAccept
             textButton="Enviar"
