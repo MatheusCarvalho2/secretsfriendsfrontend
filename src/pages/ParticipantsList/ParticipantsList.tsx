@@ -61,9 +61,9 @@ function ParticipantsList() {
 
   return (
     <>
-      <div className='home-content'>
+      <div className='main-content'>
         <div className='breadcrumb'>
-          <div className='register-header'>
+          <div className='breadcrumb-header'>
             <Link to="/home" className='back-arrow'>
               <FaArrowLeft size={20} />
             </Link>

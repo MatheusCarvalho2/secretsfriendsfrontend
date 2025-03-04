@@ -29,8 +29,8 @@ function DrawSent() {
     }
 
     return (
-        <div className='home-content'>
-            <div className='home-head'>
+        <div className='main-content'>
+            <div className='main-head'>
                 <img className="logo" src={LogoImage} alt="Logo do Secrets Friends" />
             </div>
             {!loading && <div className='img-text'>
@@ -43,7 +43,7 @@ function DrawSent() {
                 <h1 className='message-home'>Enviando...</h1>
             </div>}
 
-            <div className='buttons-home'>
+            <div className='buttons-list'>
                 <ButtonAccept
                     textButton={loading ? "Enviando..." : "Enviar"}
                     onClick={sendEmails}

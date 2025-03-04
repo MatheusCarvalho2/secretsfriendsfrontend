@@ -21,15 +21,15 @@ function DrawHeld() {
     }
 
     return (
-        <div className='home-content'>
-            <div className='home-head'>
+        <div className='main-content'>
+            <div className='main-head'>
                 <img className="logo" src={LogoImage} alt="Logo do Secrets Friends" />
             </div>
             <div className='img-text'>
                 <h1 className='message-home'>Realize o Sorteio!</h1>
                 <img src={ImgDrawHeld} alt="Caixa de presente aberta saindo confetes de dentro." />
             </div>
-            <div className='buttons-home'>
+            <div className='buttons-list'>
                 <ButtonAccept
                     textButton='Sorteia'
                     onClick={showAndDraw}

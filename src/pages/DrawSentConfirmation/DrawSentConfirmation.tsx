@@ -19,15 +19,15 @@ function DrawSentConfirmation() {
     };
 
     return (
-        <div className='home-content'>
-            <div className='home-head'>
+        <div className='main-content'>
+            <div className='main-head'>
                 <img className="logo" src={LogoImage} alt="Logo do Secrets Friends" />
             </div>
             <div className='img-text'>
                 <img src={ImgDrawSent} alt="Imagem de carta com uma marcação de OK." />
                 <h1 className='message-home'>Emails Enviados</h1>
             </div>
-            <div className='buttons-home'>
+            <div className='buttons-list'>
                 <ButtonAccept
                     textButton='Logout'
                     onClick={logout}

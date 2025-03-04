@@ -11,8 +11,8 @@ function Home() {
   });
 
   return (
-    <div className='home-content'>
-      <div className='home-head'>
+    <div className='main-content'>
+      <div className='main-head'>
         <img className="logo" src={LogoImage} alt="Logo do Secrets Friends" />
         <h2>Olá, {currentName ? currentName : 'Amigo'}</h2>
       </div>
@@ -20,7 +20,7 @@ function Home() {
         <img src={ImgHome} alt="Caixa de presente brana com uma fita azul." />
         <h3 className='message-home'>Crie o seu primeiro<br /> sorteio agora!</h3>
       </div>
-      <div className='buttons-home'>
+      <div className='buttons-list'>
         <ButtonAccept
           textButton="Criar"
           onClick={() => { window.location.href = '/criar' }}

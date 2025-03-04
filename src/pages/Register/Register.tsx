@@ -1,5 +1,4 @@
 import FormInputs from "../../components/Form/Form";
-import './Register.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
@@ -71,7 +70,7 @@ function Register() {
   return (
     <>
       <div className="breadcrumb">
-        <div className='register-header'>
+        <div className='breadcrumb-header'>
           <Link to="/" className='back-arrow'>
             <FaArrowLeft size={20} />
           </Link>

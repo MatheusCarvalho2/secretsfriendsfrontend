@@ -5,7 +5,6 @@ import { Link } from "react-router-dom"
 import FormInputs from "../../components/Form/Form";
 import ButtonAccept from "../../components/ButtonAccept/ButtonAccept";
 import api from "../../server/api";
-import "./ResetPassword.css";
 import { useDispatch } from "react-redux";
 import { setEmailResetPasswordStore } from "../../store/reducers/emailResetPassword";
 
@@ -48,8 +47,8 @@ const ResetPassword = () => {
     }
 
     return (
-        <div className='home-content'>
-            <div className='register-header'>
+        <div className='breadcrumb'>
+            <div className='breadcrumb-header'>
                 <Link to="/" className='back-arrow'>
                     <FaArrowLeft size={20} />
                 </Link>

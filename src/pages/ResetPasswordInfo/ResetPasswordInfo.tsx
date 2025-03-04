@@ -4,7 +4,6 @@ import ButtonAccept from "../../components/ButtonAccept/ButtonAccept";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import './ResetPasswordInfo.css'
 
 const ResetPasswordInfo = () => {
 
@@ -14,8 +13,8 @@ const ResetPasswordInfo = () => {
 
     return (
 
-        <div className='home-content'>
-            <div className='info-header'>
+        <div className='breadcrumb'>
+            <div className='breadcrumb-header'>
                 <Link to="/" className='back-arrow'>
                     <FaArrowLeft size={20} />
                 </Link>

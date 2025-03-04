@@ -52,8 +52,8 @@ const NewPassword = () => {
 
     return (
         <>
-            <div className='home-content'>
-                <div className='register-header'>
+            <div className='breadcrumb'>
+                <div className='breadcrumb-header'>
                     <Link to="/" className='back-arrow'>
                         <FaArrowLeft size={20} />
                     </Link>

@@ -69,25 +69,23 @@ const Login = () => {
 
   return (
     <>
-      <div className="global">
-        <div className="login">
-          <img className="login-img" src={Logo} alt="Logo do Secrets Friends" />
-          {createInput.map((input, index) => (
-            <FormInputs key={index} {...input} />
-          ))}
-          {/* <button className="button-google" type="button" value="">
+      <div className="content-login">
+        <img className="login-img" src={Logo} alt="Logo do Secrets Friends" />
+        {createInput.map((input, index) => (
+          <FormInputs key={index} {...input} />
+        ))}
+        {/* <button className="button-google" type="button" value="">
             <img src="img\google.png" alt="" />
             <span>Continuar com o Google</span>
             <span></span>
           </button> */}
-          <ButtonAccept
-            textButton="Login"
-            onClick={handleLogin}
-          />
-          <div className="links">
-            <Link to="/esqueci-minha_senha">Esqueceu sua senha</Link>
-            <Link to="/cadastro">Não possui conta? Cadastre-se!</Link>
-          </div>
+        <ButtonAccept
+          textButton="Login"
+          onClick={handleLogin}
+        />
+        <div className="links">
+          <Link to="/esqueci-minha_senha">Esqueceu sua senha</Link>
+          <Link to="/cadastro">Não possui conta? Cadastre-se!</Link>
         </div>
       </div>
     </>

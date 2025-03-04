@@ -1,5 +1,4 @@
 import FormInputs from '../../components/Form/Form';
-import './Create.css'
 import { useState } from 'react';
 import api from '../../server/api';
 import { Link } from 'react-router-dom';
@@ -100,7 +99,7 @@ function Create() {
   return (
     <>
       <div className='breadcrumb'>
-        <div className='register-header'>
+        <div className='breadcrumb-header'>
           <Link to="/home" className='back-arrow'>
             <FaArrowLeft size={20} />
           </Link>
