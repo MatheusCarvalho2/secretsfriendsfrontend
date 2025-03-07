@@ -16,6 +16,8 @@ function Create() {
   const [dateDraw, setDateDraw] = useState<string>('');
   const [giftDate, setGiftDate] = useState<string>('');
   const [descriptionDraw, setDescriptionDraw] = useState<string>('');
+  const [locationGiftExchange, setLocationGiftExchange] = useState<string>('');
+  const [otherInformation, setOtherInformation] = useState<string>('');
   const formsParameters = [
     {
       labelForInput: 'Nome do Sorteio*',
@@ -58,12 +60,28 @@ function Create() {
       inputId: 'data-presentes-input'
     },
     {
-      labelForInput: 'Descrição do amigo secreto',
+      labelForInput: 'Descrição do sorteio',
       placeholderInput: 'Ex: Amigo secreto da firma - 2024',
       typeInput: 'text',
       setInputValue: setDescriptionDraw,
       inputName: 'descricao',
       inputId: 'descricao-input'
+    },
+    {
+      labelForInput: 'Local da troca de presentes',
+      placeholderInput: 'Ex: Festa de confraternização',
+      typeInput: 'text',
+      setInputValue: setLocationGiftExchange,
+      inputName: 'location',
+      inputId: 'location-input'
+    },
+    {
+      labelForInput: 'Outras informações',
+      placeholderInput: 'Ex: Horário da festa',
+      typeInput: 'text',
+      setInputValue: setOtherInformation,
+      inputName: 'outras-informacoes',
+      inputId: 'outras-informacoes-input'
     },
   ];
 
@@ -80,7 +98,9 @@ function Create() {
         date_draws: dateDraw,
         date_present: giftDate,
         description: descriptionDraw,
-        user_id: currentUserId
+        user_id: currentUserId,
+        location: locationGiftExchange,
+        other_information: otherInformation
       },
     )
       .then(response => {
