@@ -50,7 +50,7 @@ function ParticipantsList() {
   };
 
   const handleFinish = () => {
-    window.location.href = '/sorteio_realizado'
+    window.location.href = '/meus_sorteios'
   };
 
   const handleEditClick = (participant: string) => {

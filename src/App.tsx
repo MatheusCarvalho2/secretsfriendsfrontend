@@ -11,6 +11,7 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import ResetPasswordInfo from "./pages/ResetPasswordInfo/ResetPasswordInfo";
 import NewPassword from "./pages/NewPassword/NewPassword";
 import NewPasswordInfo from "./pages/NewPasswordInfo/NewPasswordInfo";
+import AllDraws from "./pages/AllDraws/AllDraws";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/informacao" element={<ResetPasswordInfo />} />
         <Route path="/password/edit" element={<NewPassword />} />
         <Route path="/informacao_senha" element={<NewPasswordInfo />} />
+        <Route path="/meus_sorteios" element={<AllDraws />} />
       </Routes>
     </Router>
   );
