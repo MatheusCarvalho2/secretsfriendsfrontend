@@ -99,7 +99,6 @@ ul {
   justify-content: flex-start;
   align-items: center;
   margin: calc(2 * var(--gap));
-  padding-bottom: calc(10 * var(--gap));
 }
 
 .main-head h2 {

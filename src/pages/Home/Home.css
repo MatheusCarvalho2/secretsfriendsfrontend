@@ -9,7 +9,8 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  padding-bottom: calc(8 * var(--gap));
+  padding-top: calc(10 * var(--gap));
+  padding-bottom: calc(10 * var(--gap));
 }
 
 .img-text img {
