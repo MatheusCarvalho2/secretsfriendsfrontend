@@ -33,22 +33,10 @@ function AllDraws() {
 
     const dispatch = useDispatch();
 
-    function saveDrawIdStore(index: number) {
-        const idSorteio = draws[index].id;
-        dispatch(setIdDraw(idSorteio));
-    }
-
-    function handleDraw(index: number) {
-        api.get(`/draws/${draws[index].id}`)
-            .then(response => {
-                if (response.status >= 200 && response.status <= 299) {
-                    console.log(response.data)
-                    // window.location.href = "/sorteio_realizado";
-                }
-            })
-            .catch(error => {
-                console.error("Erro:", error);
-            });
+    function saveDrawIdStore(id: number) {
+        console.log(`Sorteio ${id} clicado!`);
+        dispatch(setIdDraw(id));
+        window.location.href = "/detalhes";
     }
 
     return (
@@ -59,22 +47,15 @@ function AllDraws() {
             </div>
 
             <ul className='content-cards'>
-                {draws.map((draw, index) => (
+                {draws.map((draw) => (
                     <li key={draw.id} className='draw-card'>
-                        <a
-                            href={`/draw/${draws[index].id}`}
-                            className="draw-card-link"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                saveDrawIdStore(index);
-                                handleDraw(index);
-                            }}
-                        >
+                        <button className="draw-card-button"
+                            onClick={() => saveDrawIdStore(draw.id)}>
                             <h3>{draw.title}</h3>
                             <p>Data do sorteio: {draw.date_draws}</p>
                             <p>Data da troca de presentes: {draw.date_present}</p>
                             <p>Localização: {draw.location}</p>
-                        </a>
+                        </button>
                     </li>
                 ))}
             </ul>

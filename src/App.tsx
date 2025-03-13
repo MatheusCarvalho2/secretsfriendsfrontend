@@ -12,6 +12,7 @@ import ResetPasswordInfo from "./pages/ResetPasswordInfo/ResetPasswordInfo";
 import NewPassword from "./pages/NewPassword/NewPassword";
 import NewPasswordInfo from "./pages/NewPasswordInfo/NewPasswordInfo";
 import AllDraws from "./pages/AllDraws/AllDraws";
+import DrawDetails from "./pages/DrawDetails/DrawDetails";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/password/edit" element={<NewPassword />} />
         <Route path="/informacao_senha" element={<NewPasswordInfo />} />
         <Route path="/meus_sorteios" element={<AllDraws />} />
+        <Route path="/detalhes" element={< DrawDetails />} />
       </Routes>
     </Router>
   );
