@@ -19,7 +19,6 @@ function AllDraws() {
             .then(response => {
                 if (response.status >= 200 && response.status <= 299) {
                     setDraws(response.data);
-                    console.log(response.data)
                 }
             })
             .catch(error => {
@@ -34,7 +33,6 @@ function AllDraws() {
     const dispatch = useDispatch();
 
     function saveDrawIdStore(id: number) {
-        console.log(`Sorteio ${id} clicado!`);
         dispatch(setIdDraw(id));
         window.location.href = "/detalhes";
     }

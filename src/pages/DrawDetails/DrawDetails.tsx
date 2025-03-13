@@ -6,18 +6,23 @@ import { RootState } from '../../store';
 import api from '../../server/api';
 import { DrawInterface } from '../../interface/Draw/Draw';
 import { useEffect, useState } from 'react';
+import { ParticipantsInterface } from '../../interface/Participants/Participants'
 
 function DrawDetails() {
 
     const currentDrawId = useSelector((state: RootState) => state.idDraw);
     const [draw, setDraw] = useState<DrawInterface>();
+    const [participants, setParticipants] = useState<ParticipantsInterface[]>([]);
 
     function showDrawDetails() {
         api.get(`/draws/${currentDrawId}`)
             .then(response => {
                 if (response.status >= 200 && response.status <= 299) {
-                    setDraw(response.data);
-                    console.log(response.data)
+                    setDraw(response.data.draw);
+                    setParticipants(response.data.participants)
+                    console.log(response.data);
+                    console.log(response.data.participants);
+
                     // window.location.href = "/sorteio_realizado";
                 }
             })
@@ -52,6 +57,14 @@ function DrawDetails() {
                 <h2>Sorteio: {draw?.title}</h2>
             </div>
 
+            <div>
+                {participants.map((participant, index) => (
+                    <div className='parti' key={index}>
+                        {participant.email}
+                    </div>
+                ))}
+            </div>
+
 
             <div className='buttons-list'>
                 <ButtonAccept
@@ -67,7 +80,7 @@ function DrawDetails() {
                     onClick={() => { window.location.href = "/meus_sorteios" }}
                 />
             </div>
-        </div>
+        </div >
     )
 
 }
