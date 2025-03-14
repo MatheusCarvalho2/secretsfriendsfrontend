@@ -41,23 +41,54 @@ function ParticipantsList() {
       })
       .catch(error => {
         console.error("Erro:", error);
-
       })
       .finally(() => {
         setIsModalOpen(false)
-      })
-      ;
+      });
   };
 
   const handleFinish = () => {
-    window.location.href = '/meus_sorteios'
+    const params = participantsListStore
+    api.post('/participants', params)
+      .then(response => {
+        if (response.status >= 200 && response.status <= 299) {
+          window.location.href = '/meus_sorteios'
+        }
+      })
+      .catch(error => {
+        console.error("Erro:", error);
+      });
   };
 
-  const handleEditClick = (participant: string) => {
+  const handleEditClick = (participant: string, id: number) => {
     dispatch(removeParticipant(participant));
     setEmailAddParticipant(participant)
     setIsModalOpen(true);
+    const params = { email: participant }
+    api.patch(`/participants/${id}`, params)
+      .then(response => {
+        if (response.status >= 200 && response.status <= 299) {
+          console.log(response.data);
+        }
+      })
+      .catch(error => {
+        console.error("Erro:", error);
+
+      });
   };
+
+  const handleDeleteClick = (participant: string, id: number) => {
+    dispatch(removeParticipant(participant));
+    api.delete(`/participants/${id}`)
+      .then(response => {
+        if (response.status >= 200 && response.status <= 299) {
+          console.log(response.data);
+        }
+      })
+      .catch(error => {
+        console.error("Erro:", error);
+      });
+  }
 
   return (
     <>
@@ -106,11 +137,11 @@ function ParticipantsList() {
                 <div className='edition-buttons'>
 
                   <button className='delete-button' type="button" name="delete" onClick={() => {
-                    dispatch(removeParticipant(participant));
+                    handleDeleteClick(participant, index)
                   }}>X</button>
 
                   <button className='edit-button' type="button" name="edit" onClick={() => {
-                    handleEditClick(participant)
+                    handleEditClick(participant, index)
                   }}>
                     <img src="src/assets/images/edit_icon.png" alt="Editar" className="icon" />
                   </button>
